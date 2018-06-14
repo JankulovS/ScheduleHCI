@@ -127,14 +127,14 @@ namespace Schedule
 
             brojac = 0;
             Model.Course c = new Model.Course();
-            /*foreach(string str in smerovi)
+            foreach(string str in smerovi)
             {
                 if(smer.ToString().Equals(smer))
                 {
                     c = MainWindow._mainWindow.Courses[brojac];
                 }
                 brojac++;
-            }*/
+            }
 
 
             Model.Subject s = new Model.Subject(_id, name, c, des, size_of_group, l, terms, 0, proj, b, sb, ops, softveri);
