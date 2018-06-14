@@ -104,6 +104,7 @@
     <Compile Include="DropPanel.xaml.cs">
       <DependentUpon>DropPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SoftwareTableItem.cs" />
     <Compile Include="VisualHelper.cs" />
     <Compile Include="Commands\RoutedCommands.cs" />
     <Compile Include="FilterWindow.xaml.cs">
