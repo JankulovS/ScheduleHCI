@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +34,13 @@ namespace Schedule
 
         public void Add_subject_click(object sender, EventArgs e)
         {
+            if (desc.Text == "" || id.Text == "" || n.Text == "" || n_students.Text == "" || n_terms.Text == "" || len.Text == "")
+            {
+                MessageBox.Show("Mandatory fields are not filled.");
+                return;
+            }
+
+
             string _id = id.Text.ToString();
             string name = n.Text.ToString();
             int size_of_group = Int32.Parse(n_students.Text.ToString());
@@ -140,5 +148,11 @@ namespace Schedule
             //Do whatever you want here..
         }
 
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }

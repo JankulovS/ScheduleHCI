@@ -27,7 +27,7 @@
         <xctk:WatermarkTextBox Watermark="enter id" Name="id" Grid.Row="0" Margin="0 0 0 10"/>
 
 
-        <xctk:WatermarkTextBox Watermark="enter number of seats" Name="seats" Grid.Row="1" Margin="0 0 0 10"/>
+        <xctk:WatermarkTextBox Watermark="enter number of seats" Name="seats" Grid.Row="1" Margin="0 0 0 10" PreviewTextInput="NumberValidationTextBox"/>
 
 
         <xctk:WatermarkTextBox

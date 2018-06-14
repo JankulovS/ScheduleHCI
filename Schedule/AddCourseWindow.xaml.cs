@@ -32,6 +32,13 @@ namespace Schedule
 
         public void Add_course(object sender, RoutedEventArgs e)
         {
+            if (id.Text == "" || n.Text == "" || desc.Text == "" || d.Text == "")
+            {
+                MessageBox.Show("Mandatory fields are not filled.");
+                return;
+            }
+
+
             string _id = id.Text.ToString();
             string name = n.Text.ToString();
             DateTime date = DateTime.Parse( d.Text.ToString());

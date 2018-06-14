@@ -70,6 +70,7 @@
                                     <MenuItem Header="Add Software" Command="cmd:RoutedCommands.AddSoftware"/>
                                     <Separator />
                                     <MenuItem Header="Edit" />
+                                    <MenuItem Header="Delete" />
                                 </ContextMenu>
                             </TextBlock.ContextMenu>
                         </TextBlock>
@@ -99,6 +100,7 @@
                                     <MenuItem Header="Add Software" Command="cmd:RoutedCommands.AddSoftware"/>
                                     <Separator />
                                     <MenuItem Header="Edit" />
+                                    <MenuItem Header="Delete" />
                                 </ContextMenu>
                             </TextBlock.ContextMenu>
                         </TextBlock>

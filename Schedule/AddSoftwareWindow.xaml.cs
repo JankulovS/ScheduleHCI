@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +36,13 @@ namespace Schedule
 
         public void Add_software_click(object sender, EventArgs e)
         {
+            if (id.Text == "" || n.Text == "" || mak.Text == "" || web.Text == "" || y.Text == "" || p.Text == "" || desc.Text == "")
+            {
+                MessageBox.Show("Mandatory fields are not filled.");
+                return;
+            }
+
+
             string _id = id.Text.ToString();
             string name = n.Text.ToString();
             string maker = mak.Text.ToString();
@@ -106,6 +114,18 @@ namespace Schedule
             ResetWindow();
             this.Hide();
             //Do whatever you want here..
+        }
+
+        private void YearValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("^(19|20)[0-9][0-9]");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -32,9 +32,9 @@
         <xctk:WatermarkTextBox Watermark="enter website" Name="web" Margin="0 0 0 7" Grid.Row="3"/>
 
 
-        <xctk:WatermarkTextBox Watermark="enter year of publication" Margin="0 0 0 7" Name="y" Grid.Row="4"/>
+        <xctk:WatermarkTextBox Watermark="enter year of publication" Margin="0 0 0 7" Name="y" Grid.Row="4"  PreviewTextInput="YearValidationTextBox"/>
 
-        <xctk:WatermarkTextBox Watermark="enter price" Name="p" Margin="0 0 0 7" Grid.Row="5"/>
+        <xctk:WatermarkTextBox Watermark="enter price" Name="p" Margin="0 0 0 7" Grid.Row="5"  PreviewTextInput="NumberValidationTextBox"/>
 
         <xctk:WatermarkTextBox Name="desc"
                   TextWrapping="Wrap"
@@ -56,7 +56,7 @@
                 <ColumnDefinition Width="1*"/>
 
             </Grid.ColumnDefinitions>
-            <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" IsChecked="True" Checked="Radio_Click"/>
             <RadioButton Grid.Column="2" GroupName="os" Content="linux" x:Name="lin" Checked="Radio_Click"/>
             <RadioButton Grid.Column="3" GroupName="os" Content="cross-platform" x:Name="cp" Checked="Radio_Click"/>
         </Grid>

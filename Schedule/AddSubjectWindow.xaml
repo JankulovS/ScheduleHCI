@@ -28,11 +28,11 @@
 
         <xctk:WatermarkTextBox Watermark="enter name"  Margin="0 0 0 7" Name="n" Grid.Row="1"/>
 
-        <xctk:WatermarkTextBox Watermark="enter size of group" Name="n_students" Margin="0 0 0 7" Grid.Row="2"/>
+        <xctk:WatermarkTextBox Watermark="enter size of group" Name="n_students" Margin="0 0 0 7" Grid.Row="2" PreviewTextInput="NumberValidationTextBox"/>
 
-        <xctk:WatermarkTextBox Watermark="enter minimum length of term(in 45 minutes)" Margin="0 0 0 7" Name="len" Grid.Row="3"/>
+        <xctk:WatermarkTextBox Watermark="enter minimum length of term(in 45 minutes)" Margin="0 0 0 7" Name="len" Grid.Row="3" PreviewTextInput="NumberValidationTextBox"/>
 
-        <xctk:WatermarkTextBox Watermark="enter number of terms" Name="n_terms" Margin="0 0 0 7" Grid.Row="4"/>
+        <xctk:WatermarkTextBox Watermark="enter number of terms" Name="n_terms" Margin="0 0 0 7" Grid.Row="4" PreviewTextInput="NumberValidationTextBox"/>
 
         <xctk:WatermarkTextBox Name="desc"
                   TextWrapping="Wrap"
@@ -75,7 +75,7 @@
                 <ColumnDefinition Width="1*"/>
 
             </Grid.ColumnDefinitions>
-            <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" IsChecked="True" Checked="Radio_Click"/>
             <RadioButton Grid.Column="2" GroupName="os" Content="linux" x:Name="lin" Checked="Radio_Click"/>
             <RadioButton Grid.Column="3" GroupName="os" Content="others" x:Name="cp" Checked="Radio_Click"/>
         </Grid>
