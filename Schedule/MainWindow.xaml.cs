@@ -579,6 +579,11 @@ namespace Schedule
                 itemList.Classrooms = classrooms;
                 itemList.lv2.ItemsSource = itemList.Classrooms;
                 itemList.lv3.ItemsSource = subjects;
+
+                // moja magija
+
+                Table._subjects = ItemList._itemList.Subjects;
+                Table._subjectsUI = ItemList._itemList.lv3;
             }
             Console.WriteLine("Loaded entities!");
         }
