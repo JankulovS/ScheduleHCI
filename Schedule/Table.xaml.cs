@@ -257,8 +257,7 @@ namespace Schedule
                 sch.listThursday = new List<Table.DataObject>();
                 sch.listFriday = new List<Table.DataObject>();
                 sch.listSaturday = new List<Table.DataObject>();
-                for (int i = 0; i <= 15; i++)
-                {
+
                     //sch.list.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
                     sch.listMonday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
                     sch.listTuesday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
@@ -399,7 +398,7 @@ namespace Schedule
                     sch.listThursday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
                     sch.listFriday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
                     sch.listSaturday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
-                }
+                
                 _classrooms[classroom] = sch;
 
                 var list = new ObservableCollection<Table.DataObject>();
