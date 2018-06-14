@@ -141,6 +141,10 @@ namespace Schedule
 
         private void Filter_Click(object sender, RoutedEventArgs e)
         {
+            if(getComboboxText() == "Courses")
+            {
+                return;
+            }
             FilterHandler(this, EventArgs.Empty);
         }
 

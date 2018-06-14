@@ -169,6 +169,11 @@ namespace Schedule
 
         private void FilterWin()
         {
+            if(itemList.getComboboxText() == "Courses")
+            {
+                return;
+            }
+
             fw = new FilterWindow(itemList.getComboboxText());
             fw.FilterHandler += Filter;
             fw.Subjects = subjects;
