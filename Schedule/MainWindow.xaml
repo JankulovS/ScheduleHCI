@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cmd="clr-namespace:Schedule.Commands"
         mc:Ignorable="d"
-        Title="Scheduler" Height="430" Width="750"
-        MaxHeight="430" MaxWidth="750">
+        Title="Scheduler" Height="450" Width="750"
+        MaxHeight="450" MaxWidth="750"
+        MinHeight="450" MinWidth="750"
+        ResizeMode="NoResize">
+    
 
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EndSearch" Executed="CommandBinding_Executed"></CommandBinding>
@@ -16,11 +19,29 @@
         <CommandBinding Command="cmd:RoutedCommands.Load" Executed="Load_Executed"></CommandBinding>
     </Window.CommandBindings>
 
-    <Grid Name="grid">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Save Schedule" Command="cmd:RoutedCommands.Save"/>
+                <MenuItem Header="_Load Schedule" Command="cmd:RoutedCommands.Load"/>
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Header="_Checkable" IsCheckable="True" IsChecked="True" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_View Help">
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <Grid Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="25*"/>
             <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
-        
     </Grid>
+
+
+    </DockPanel>
 </Window>
