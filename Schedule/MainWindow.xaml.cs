@@ -16,12 +16,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
 namespace Schedule
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    public class EntityData
+    {
+        public List<Subject> subjects;
+        public List<Course> courses;
+        public List<Software> software;
+        public List<Classroom> classrooms;
+    }
+
     public partial class MainWindow : Window
     {
         private ItemList itemList;
@@ -38,6 +49,8 @@ namespace Schedule
         private ObservableCollection<Course> courses;
         private ObservableCollection<Software> software;
         private ObservableCollection<Classroom> classrooms;
+
+        
 
         public static MainWindow _mainWindow;
 
@@ -484,11 +497,71 @@ namespace Schedule
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Table.SaveSchedule();
+            SaveEntities();
         }
 
         private void Load_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Table.LoadSchedule();
+            LoadEntities();
+        }
+
+        private void SaveEntities()
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(EntityData));
+            TextWriter tw = new StreamWriter(Directory.GetCurrentDirectory() + "\\schedule.ent");
+
+            EntityData ser_data = new EntityData();
+
+            ser_data.classrooms = classrooms.ToList<Classroom>();
+            ser_data.courses = courses.ToList<Course>();
+            ser_data.subjects = subjects.ToList<Subject>();
+            ser_data.software = software.ToList<Software>();
+
+
+
+            xs.Serialize(tw, ser_data);
+            Console.WriteLine("Saved entities!");
+        }
+
+        private void LoadEntities()
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(EntityData));
+            using (var sr = new StreamReader(Directory.GetCurrentDirectory() + "\\schedule.ent"))
+            {
+                EntityData ser_data = (EntityData)xs.Deserialize(sr);
+
+                courses = new ObservableCollection<Course>();
+                foreach (var course in ser_data.courses)
+                {
+                    courses.Add(course);
+                }
+                classrooms = new ObservableCollection<Classroom>();
+                foreach (var classroom in ser_data.classrooms)
+                {
+                    classrooms.Add(classroom);
+                }
+                subjects = new ObservableCollection<Subject>();
+                foreach (var subject in ser_data.subjects)
+                {
+                    subjects.Add(subject);
+                }
+                software = new ObservableCollection<Software>();
+                foreach (var sw in ser_data.software)
+                {
+                    software.Add(sw);
+                }
+
+                // stajiceva magija
+                itemList.Courses = courses;
+                itemList.Software = software;
+                itemList.Subjects = subjects;
+                itemList.lv.ItemsSource = itemList.Subjects;
+                itemList.Classrooms = classrooms;
+                itemList.lv2.ItemsSource = itemList.Classrooms;
+                itemList.lv3.ItemsSource = subjects;
+            }
+            Console.WriteLine("Loaded entities!");
         }
 
         private void add_new_classroom_clicked(object sender, RoutedEventArgs e)
