@@ -31,7 +31,7 @@
                   CanUserSortColumns="False"
                   CanUserResizeColumns="False"
                   CanUserResizeRows="False"
-                  RowHeight="22.6"
+                  RowHeight="18.08"
                   HorizontalAlignment="Left"  
                   VerticalAlignment="Top"
                   HeadersVisibility="None"
