@@ -96,7 +96,26 @@ namespace Schedule
 
 
             //!!!
-            Model.Classroom c = new Model.Classroom(_id, des, ns, proj, b, sb, sys, new List<Model.Software>());
+
+
+            List<Model.Software> softveri = new List<Model.Software>();
+            int brojac = 0;
+
+            foreach (var item in kolekcija.ItemsSource)
+            {
+
+                SoftwareTableItem i = (SoftwareTableItem)item;
+
+                if (i.MyBool == true)
+                {
+
+                    softveri.Add(MainWindow._mainWindow.Softwares[brojac]);
+                }
+                brojac++;
+            }
+
+
+            Model.Classroom c = new Model.Classroom(_id, des, ns, proj, b, sb, sys, softveri);
 
             MainWindow.AddClassroom(c);
 
@@ -123,13 +142,6 @@ namespace Schedule
             this.Hide();
         }
 
-        public void Add_software_Click(object sender, EventArgs e)
-        {
-
-            //ChooseSoftwareWindow w = new ChooseSoftwareWindow();
-            //evo ne znam sta da radim majke mi
-
-        }
 
         private void Cancel_click(object sender, RoutedEventArgs e)
         {

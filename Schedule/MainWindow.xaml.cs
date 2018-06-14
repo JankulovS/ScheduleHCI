@@ -56,7 +56,9 @@ namespace Schedule
         public static MainWindow _mainWindow;
         public static string _file;
 
+
         public ObservableCollection<Software> Softwares { get { return software; } set { software = value; } }
+        public ObservableCollection<Course> Courses { get { return courses; } set { courses = value; } }
 
 
         public MainWindow()

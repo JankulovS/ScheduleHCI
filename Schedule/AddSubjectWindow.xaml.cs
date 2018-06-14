@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Schedule.Model;
 
 namespace Schedule
 {
@@ -23,12 +24,45 @@ namespace Schedule
 
         public static string ops;
 
+        public static List<String> smerovi;
+
         public virtual string Ops
         { get { return ops; } set { ops = value; } }
 
         public AddSubjectWindow()
         {
+            smerovi = new List<string>();
             InitializeComponent();
+            FillDataGridSoftwares();
+            FillComboBoxCourses();
+
+        }
+
+
+        private void FillDataGridSoftwares()
+        {
+            var listItem = new List<SoftwareTableItem>();
+
+            foreach (Model.Software s in MainWindow._mainWindow.Softwares)
+            {
+                listItem.Add(new SoftwareTableItem() { ID = s.ID, Name = s.Name, Os = s.OS, Maker = s.Maker, Website = s.Website });
+
+            }
+
+            soft.ItemsSource = listItem;
+        }
+
+        private void FillComboBoxCourses()
+        {
+
+            foreach (Model.Course c in MainWindow._mainWindow.Courses)
+            {
+                smerovi.Add(c.Name);
+            }
+
+            smer.ItemsSource = smerovi;
+
+
         }
 
         public void Add_subject_click(object sender, EventArgs e)
@@ -73,7 +107,37 @@ namespace Schedule
 
 
             //!!!
-            Model.Subject s = new Model.Subject(_id, name, new Model.Course(), des, size_of_group, l, terms, 0, proj, b, sb, ops);
+
+            List<Model.Software> softveri = new List<Model.Software>();
+            int brojac = 0;
+
+            foreach (var item in soft.ItemsSource)
+            {
+
+                SoftwareTableItem i = (SoftwareTableItem)item;
+
+                if (i.MyBool == true)
+                {
+
+                    softveri.Add(MainWindow._mainWindow.Softwares[brojac]);
+                }
+                brojac++;
+            }
+
+
+            brojac = 0;
+            Model.Course c = new Model.Course();
+            /*foreach(string str in smerovi)
+            {
+                if(smer.ToString().Equals(smer))
+                {
+                    c = MainWindow._mainWindow.Courses[brojac];
+                }
+                brojac++;
+            }*/
+
+
+            Model.Subject s = new Model.Subject(_id, name, c, des, size_of_group, l, terms, 0, proj, b, sb, ops, softveri);
 
             MainWindow.AddSubject(s);
             ResetWindow();
@@ -117,19 +181,6 @@ namespace Schedule
                 ops = "others";
             }
 
-        }
-
-
-        public void Add_course_click(object sender, EventArgs e)
-        {
-            //AddCourseWindow w = new AddCourseWindow();
-            //nisam pametan
-        }
-
-        public void Add_software_click(object sender, EventArgs e)
-        {
-            //AddSoftwareWindow w = new AddSoftwareWindow();
-            // -||-
         }
 
         protected override void OnClosing(CancelEventArgs e)

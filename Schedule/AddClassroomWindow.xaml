@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Schedule"
              mc:Ignorable="d" 
-             Width="500" Height="520" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
+             Width="525" Height="510" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
              
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -90,7 +90,7 @@
         </Grid>
 
 
-        <Label Content="Software" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Bottom"/>
+        <Label Content="Softwares:" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Bottom"/>
 
         <Grid Grid.Row="7">
 
@@ -101,11 +101,11 @@
                     <DataGridTextColumn Header="os" Binding="{Binding Os}" Width="100"/>
                     <DataGridTextColumn Header="maker" Binding="{Binding Maker}" Width="100"/>
                     <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="100"/>
-                    <DataGridCheckBoxColumn />
+                    <DataGridCheckBoxColumn Header="necessary" Binding="{Binding MyBool}" />
+
 
                 </DataGrid.Columns>
 
-               
 
 
             </DataGrid>

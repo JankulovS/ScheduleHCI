@@ -14,7 +14,8 @@ namespace Schedule
         public string Os { get; set; }
         public string Maker { get; set; }
         public string Website { get; set; }
-
+        public bool MyBool { get; set; }
+        
         /*public string k;
         public string name;
         public string os;
