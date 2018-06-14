@@ -260,12 +260,145 @@ namespace Schedule
                 for (int i = 0; i <= 15; i++)
                 {
                     //sch.list.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                    sch.listMonday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                    sch.listTuesday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                    sch.listWednesday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                    sch.listThursday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                    sch.listFriday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                    sch.listSaturday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
+                    sch.listMonday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+
+                    sch.listMonday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+                    sch.listTuesday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+                    sch.listWednesday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+                    sch.listThursday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+                    sch.listFriday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+                    sch.listSaturday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
                 }
                 _classrooms[classroom] = sch;
 
@@ -360,18 +493,171 @@ namespace Schedule
         {
 
             var list = new ObservableCollection<DataObject>();
-            for (int i = 0; i <= 15; i++)
-            {
-                list.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                listMonday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                listTuesday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                listWednesday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                listThursday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                listFriday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-                listSaturday.Add(new DataObject() { timesList = i + 7 + ":00", subjectsList = "" });
-            }
+            
+            list.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 7 + ":00", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 7 + ":45", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 8 + ":30", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 9 + ":15", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 10 + ":00", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 10 + ":45", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 11 + ":30", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 12 + ":15", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 13 + ":00", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 13 + ":45", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 14 + ":30", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 15 + ":15", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 16 + ":00", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 16 + ":45", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 17 + ":30", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 18 + ":15", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 19 + ":00", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 19 + ":45", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 20 + ":30", subjectsList = "" });
+
+            list.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+            listMonday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+            listTuesday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+            listWednesday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+            listThursday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+            listFriday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+            listSaturday.Add(new DataObject() { timesList = 21 + ":15", subjectsList = "" });
+
             this.tableGrid.ItemsSource = list;
         }
+
+        
 
         private void ListView_DragEnter(object sender, DragEventArgs e)
         {
@@ -403,10 +689,10 @@ namespace Schedule
                 Point mousePosition = e.GetPosition(tableGrid);
                 double mouseY = mousePosition.Y;
                 double screenHeight = tableGrid.Height -40;
-                selectedRow = (int)(((mouseY) / (screenHeight)) * 16);
-                if (selectedRow > 16)
+                selectedRow = (int)(((mouseY) / (screenHeight)) * 20);
+                if (selectedRow > 20)
                 {
-                    selectedRow = 16;
+                    selectedRow = 20;
                 }
 
                 Console.WriteLine("mouse y: " + mouseY + " table height: "+ tableGrid.Height +" selectedRow = " + (mouseY / screenHeight) * 16);
@@ -533,8 +819,10 @@ namespace Schedule
                 }
                 _subjectsUI.ItemsSource = newSubjects;
 
+                string time = list.ElementAt(deleteIdx).timesList;
+                
                 list.RemoveAt(deleteIdx);
-                list.Insert(deleteIdx, new DataObject { timesList = (deleteIdx + 7) + ":00", subjectsList = "" });
+                list.Insert(deleteIdx, new DataObject { timesList = time , subjectsList = "" });
                 this.tableGrid.ItemsSource = list;
 
                 Console.WriteLine("deleted item at position " + deleteIdx);
