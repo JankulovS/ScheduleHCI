@@ -468,7 +468,12 @@ namespace Schedule
                 var list = new ObservableCollection<DataObject>();
                 list = (ObservableCollection<DataObject>)tableGrid.ItemsSource;
                 swap_idx = tableGrid.SelectedIndex;
-                DataObject obj = list.ElementAt(swap_idx);
+                DataObject obj;
+                try { obj= list.ElementAt(swap_idx); }
+                catch (ArgumentOutOfRangeException)
+                {
+                    return;
+                }
                 _isNewDrop = false;
 
                 Subject subject = new Subject();
