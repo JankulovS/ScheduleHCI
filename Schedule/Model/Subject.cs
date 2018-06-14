@@ -22,6 +22,7 @@ namespace Schedule.Model
         private string os;
         private List<Software> software;
 
+
         public Subject()
         {
         }
@@ -35,7 +36,7 @@ namespace Schedule.Model
             this.groupSize = groupSize;
             this.classLength = classLength;
             this.noOfClasses = noOfClasses;
-            this.noOfClassesSet = noOfClassesSet;
+            this.noOfClassesSet = 0;
             this.projector = projector;
             this.board = board;
             this.smartBoard = smartBoard;
@@ -52,7 +53,7 @@ namespace Schedule.Model
             this.groupSize = groupSize;
             this.classLength = classLength;
             this.noOfClasses = noOfClasses;
-            this.noOfClassesSet = noOfClassesSet;
+            this.noOfClassesSet = 0;
             this.projector = projector;
             this.board = board;
             this.smartBoard = smartBoard;

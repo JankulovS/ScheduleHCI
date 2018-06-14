@@ -88,10 +88,7 @@ namespace Schedule
             table = new Table();
             grid.Children.Add(table);
             Grid.SetColumn(table, 1);
-
-            DropPanel dp = new DropPanel();
-            grid.Children.Add(dp);
-            Grid.SetColumn(dp, 1);
+            
 
         }
 
@@ -162,6 +159,10 @@ namespace Schedule
         {
             itemList.SearchHandler += SearchWin;
             itemList.FilterHandler += FilterWin;
+            itemList.AddClassroom += Add_Classroom;
+            itemList.AddSubject += Add_Subject;
+            itemList.AddCourse += Add_Course;
+            itemList.AddSoftware += Add_Software;
         }
 
         private void FilterWin()
@@ -593,22 +594,22 @@ namespace Schedule
             Console.WriteLine("Loaded entities!");
         }
 
-        private void add_new_classroom_clicked(object sender, RoutedEventArgs e)
+        private void Add_Classroom(object sender, EventArgs e)
         {
             aclassroomw.Show();
         }
 
-        private void add_new_subject_clicked(object sender, RoutedEventArgs e)
+        private void Add_Subject(object sender, EventArgs e)
         {
             asubjectw.Show();
         }
 
-        private void add_new_course_clicked(object sender, RoutedEventArgs e)
+        private void Add_Course(object sender, EventArgs e)
         {
             acoursew.Show();
         }
 
-        private void add_new_software_clicked(object sender, RoutedEventArgs e)
+        private void Add_Software(object sender, EventArgs e)
         {
             asoftwarew.Show();
         }
@@ -631,6 +632,11 @@ namespace Schedule
         public static void AddSubject(Subject s)
         {
             _mainWindow.subjects.Add(s);
+        }
+
+        private void CommandBinding_Executed_1(object sender, ExecutedRoutedEventArgs e)
+        {
+
         }
     }
 }

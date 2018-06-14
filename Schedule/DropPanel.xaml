@@ -9,9 +9,9 @@
     <Canvas Width="450" Height="800" >
 
         <!-- Draws a 100 by 50 rectangle with a solid blue fill. -->
-        <Rectangle Width="250" Height="42" Fill="LightBlue" Canvas.Left="10" Canvas.Top="32" RadiusX="20" RadiusY="20" />
+        <Rectangle Width="250" Height="42" Fill="LightBlue" Canvas.Left="10" Canvas.Top="32"/>
 
-        <Label Canvas.Left="30" Canvas.Top="32"  Background="LightBlue"></Label>
+        <Label Canvas.Left="10" Canvas.Top="32"  Background="LightBlue"></Label>
         <TextBlock Width="200" TextWrapping="WrapWithOverflow" Canvas.Left="25" Canvas.Top="32"  Background="LightBlue">some textasdasdasdasdasddasd asdasdasdasdasdas</TextBlock>
     </Canvas>
 </UserControl>

@@ -43,8 +43,12 @@ namespace Schedule
 
         public event EventHandler SearchHandler;
         public event EventHandler FilterHandler;
-        
-        
+        public event EventHandler AddClassroom;
+        public event EventHandler AddSubject;
+        public event EventHandler AddCourse;
+        public event EventHandler AddSoftware;
+
+
         public ItemList()
         {
             i = 1;
@@ -177,6 +181,7 @@ namespace Schedule
 
                 lv3.Visibility = Visibility.Hidden;
                 Grid.SetColumnSpan(lv, 4);
+                
             }
             else if (text == "Classrooms")
             {
@@ -213,5 +218,26 @@ namespace Schedule
                 return;
             }
         }
+
+        private void Add_Classroom(object sender, RoutedEventArgs e)
+        {
+            AddClassroom(this, EventArgs.Empty);
+        }
+
+        private void Add_Subject(object sender, RoutedEventArgs e)
+        {
+            AddSubject(this, EventArgs.Empty);
+        }
+
+        private void Add_Course(object sender, RoutedEventArgs e)
+        {
+            AddCourse(this, EventArgs.Empty);
+        }
+
+        private void Add_Software(object sender, RoutedEventArgs e)
+        {
+            AddSoftware(this, EventArgs.Empty);
+        }
+
     }
 }
