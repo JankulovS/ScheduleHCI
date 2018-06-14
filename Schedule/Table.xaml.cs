@@ -709,7 +709,71 @@ namespace Schedule
                 if (swap_idx >= 0)
                 {
                     list.RemoveAt(swap_idx);
-                    list.Insert(swap_idx, new DataObject { timesList = (swap_idx+7)+":00", subjectsList = obj.subjectsList});
+                    switch(swap_idx)
+                    {
+                        case 0:
+                            list.Insert(swap_idx, new DataObject { timesList = "7:00", subjectsList = obj.subjectsList });
+                            break;
+                        case 1:
+                            list.Insert(swap_idx, new DataObject { timesList = "7:45", subjectsList = obj.subjectsList });
+                            break;
+                        case 2:
+                            list.Insert(swap_idx, new DataObject { timesList = "8:30", subjectsList = obj.subjectsList });
+                            break;
+                        case 3:
+                            list.Insert(swap_idx, new DataObject { timesList = "9:15", subjectsList = obj.subjectsList });
+                            break;
+                        case 4:
+                            list.Insert(swap_idx, new DataObject { timesList = "10:00", subjectsList = obj.subjectsList });
+                            break;
+                        case 5:
+                            list.Insert(swap_idx, new DataObject { timesList = "10:45", subjectsList = obj.subjectsList });
+                            break;
+                        case 6:
+                            list.Insert(swap_idx, new DataObject { timesList = "11:30", subjectsList = obj.subjectsList });
+                            break;
+                        case 7:
+                            list.Insert(swap_idx, new DataObject { timesList = "12:15", subjectsList = obj.subjectsList });
+                            break;
+                        case 8:
+                            list.Insert(swap_idx, new DataObject { timesList = "13:00", subjectsList = obj.subjectsList });
+                            break;
+                        case 9:
+                            list.Insert(swap_idx, new DataObject { timesList = "13:45", subjectsList = obj.subjectsList });
+                            break;
+                        case 10:
+                            list.Insert(swap_idx, new DataObject { timesList = "14:30", subjectsList = obj.subjectsList });
+                            break;
+                        case 11:
+                            list.Insert(swap_idx, new DataObject { timesList = "15:15", subjectsList = obj.subjectsList });
+                            break;
+                        case 12:
+                            list.Insert(swap_idx, new DataObject { timesList = "16:00", subjectsList = obj.subjectsList });
+                            break;
+                        case 13:
+                            list.Insert(swap_idx, new DataObject { timesList = "16:45", subjectsList = obj.subjectsList });
+                            break;
+                        case 14:
+                            list.Insert(swap_idx, new DataObject { timesList = "17:30", subjectsList = obj.subjectsList });
+                            break;
+                        case 15:
+                            list.Insert(swap_idx, new DataObject { timesList = "18:15", subjectsList = obj.subjectsList });
+                            break;
+                        case 16:
+                            list.Insert(swap_idx, new DataObject { timesList = "19:00", subjectsList = obj.subjectsList });
+                            break;
+                        case 17:
+                            list.Insert(swap_idx, new DataObject { timesList = "19:45", subjectsList = obj.subjectsList });
+                            break;
+                        case 18:
+                            list.Insert(swap_idx, new DataObject { timesList = "20:30", subjectsList = obj.subjectsList });
+                            break;
+                        case 19:
+                            list.Insert(swap_idx, new DataObject { timesList = "21:15", subjectsList = obj.subjectsList });
+                            break;
+
+                    }
+                    //list.Insert(swap_idx, new DataObject { timesList = (swap_idx+7)+":00", subjectsList = obj.subjectsList});
                 }
 
                 this.tableGrid.ItemsSource = list;
