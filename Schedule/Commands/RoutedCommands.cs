@@ -70,6 +70,45 @@ namespace Schedule.Commands
                 new KeyGesture(Key.L, ModifierKeys.Control)
             }
             );
-        
+
+        public static readonly RoutedUICommand AddClassroom = new RoutedUICommand(
+            "Add Classroom",
+            "AddClassroom",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.R, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand AddSubject = new RoutedUICommand(
+            "Add Subject",
+            "AddSubject",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.B, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand AddCourse = new RoutedUICommand(
+            "Add Course",
+            "AddCourse",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.U, ModifierKeys.Alt)
+            }
+            );
+
+        public static readonly RoutedUICommand AddSoftware = new RoutedUICommand(
+            "Add Software",
+            "AddSoftware",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.W, ModifierKeys.Alt)
+            }
+            );
     }
 }

@@ -17,6 +17,10 @@
         <CommandBinding Command="cmd:RoutedCommands.Filter" Executed="FilterWin"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Save" Executed="Save_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Load" Executed="Load_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.AddClassroom" Executed="Add_Classroom"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.AddSubject" Executed="Add_Subject"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.AddCourse" Executed="Add_Course"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.AddSoftware" Executed="Add_Software"></CommandBinding>
     </Window.CommandBindings>
 
     <DockPanel>
@@ -28,10 +32,10 @@
             </MenuItem>
             <MenuItem Header="_Tools">
                 <MenuItem Header="_Checkable" IsCheckable="True" IsChecked="True" />
-                <MenuItem Header="_Add Classroom" Click="add_new_classroom_clicked"></MenuItem>
-                <MenuItem Header="_Add Subject" Click="add_new_subject_clicked"></MenuItem>
-                <MenuItem Header="_Add Course" Click="add_new_course_clicked"></MenuItem>
-                <MenuItem Header="_Add Software" Click="add_new_software_clicked"></MenuItem>
+                <MenuItem Header="_Add Classroom" Command="cmd:RoutedCommands.AddClassroom"></MenuItem>
+                <MenuItem Header="_Add Subject" Command="cmd:RoutedCommands.AddSubject"></MenuItem>
+                <MenuItem Header="_Add Course" Command="cmd:RoutedCommands.AddCourse"></MenuItem>
+                <MenuItem Header="_Add Software" Command="cmd:RoutedCommands.AddSoftware"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Help">

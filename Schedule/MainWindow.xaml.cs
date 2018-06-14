@@ -45,7 +45,7 @@ namespace Schedule
         AddSubjectWindow asubjectw;
         AddCourseWindow acoursew;
         AddSoftwareWindow asoftwarew;
-
+        
         private ObservableCollection<Subject> subjects;
         private ObservableCollection<Course> courses;
         private ObservableCollection<Software> software;
@@ -55,6 +55,8 @@ namespace Schedule
 
         public static MainWindow _mainWindow;
         public static string _file;
+
+        public ObservableCollection<Software> Softwares { get { return software; } set { software = value; } }
 
 
         public MainWindow()
@@ -88,6 +90,8 @@ namespace Schedule
             table = new Table();
             grid.Children.Add(table);
             Grid.SetColumn(table, 1);
+            
+
         }
 
         //public void Save()
@@ -157,10 +161,19 @@ namespace Schedule
         {
             itemList.SearchHandler += SearchWin;
             itemList.FilterHandler += FilterWin;
+            itemList.AddClassroom += Add_Classroom;
+            itemList.AddSubject += Add_Subject;
+            itemList.AddCourse += Add_Course;
+            itemList.AddSoftware += Add_Software;
         }
 
         private void FilterWin()
         {
+            if(itemList.getComboboxText() == "Courses")
+            {
+                return;
+            }
+
             fw = new FilterWindow(itemList.getComboboxText());
             fw.FilterHandler += Filter;
             fw.Subjects = subjects;
@@ -588,22 +601,22 @@ namespace Schedule
             Console.WriteLine("Loaded entities!");
         }
 
-        private void add_new_classroom_clicked(object sender, RoutedEventArgs e)
+        private void Add_Classroom(object sender, EventArgs e)
         {
             aclassroomw.Show();
         }
 
-        private void add_new_subject_clicked(object sender, RoutedEventArgs e)
+        private void Add_Subject(object sender, EventArgs e)
         {
             asubjectw.Show();
         }
 
-        private void add_new_course_clicked(object sender, RoutedEventArgs e)
+        private void Add_Course(object sender, EventArgs e)
         {
             acoursew.Show();
         }
 
-        private void add_new_software_clicked(object sender, RoutedEventArgs e)
+        private void Add_Software(object sender, EventArgs e)
         {
             asoftwarew.Show();
         }
@@ -626,6 +639,11 @@ namespace Schedule
         public static void AddSubject(Subject s)
         {
             _mainWindow.subjects.Add(s);
+        }
+
+        private void CommandBinding_Executed_1(object sender, ExecutedRoutedEventArgs e)
+        {
+
         }
     }
 }
