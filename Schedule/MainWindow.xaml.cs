@@ -45,7 +45,7 @@ namespace Schedule
         AddSubjectWindow asubjectw;
         AddCourseWindow acoursew;
         AddSoftwareWindow asoftwarew;
-
+        
         private ObservableCollection<Subject> subjects;
         private ObservableCollection<Course> courses;
         private ObservableCollection<Software> software;
@@ -55,6 +55,8 @@ namespace Schedule
 
         public static MainWindow _mainWindow;
         public static string _file;
+
+        public ObservableCollection<Software> Softwares { get { return software; } set { software = value; } }
 
 
         public MainWindow()
