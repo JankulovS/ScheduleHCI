@@ -90,6 +90,15 @@
     <Compile Include="AddClassroomWindow.xaml.cs">
       <DependentUpon>AddClassroomWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddCourseWindow.xaml.cs">
+      <DependentUpon>AddCourseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddSoftwareWindow.xaml.cs">
+      <DependentUpon>AddSoftwareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddSubjectWindow.xaml.cs">
+      <DependentUpon>AddSubjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VisualHelper.cs" />
     <Compile Include="Commands\RoutedCommands.cs" />
     <Compile Include="FilterWindow.xaml.cs">
@@ -103,6 +112,18 @@
       <DependentUpon>Table.xaml</DependentUpon>
     </Compile>
     <Page Include="AddClassroomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddCourseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSoftwareWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddSubjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

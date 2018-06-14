@@ -11,31 +11,38 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Schedule
 {
     /// <summary>
-    /// Interaction logic for AddClassroomWindow.xaml
+    /// Interaction logic for AddSubjectWindow.xaml
     /// </summary>
-    public partial class AddClassroomWindow : Window
+    public partial class AddSubjectWindow : Window
     {
-        public AddClassroomWindow()
+
+        public static string ops;
+
+        public virtual string Ops
+        { get { return ops; } set { ops = value; } }
+
+        public AddSubjectWindow()
         {
             InitializeComponent();
         }
 
-        public void Add_classrom_click(object sender, EventArgs e)
+        public void Add_subject_click(object sender, EventArgs e)
         {
             string _id = id.ToString();
-            int ns = Int32.Parse(seats.ToString());
+            string name = n.ToString();
+            int size_of_group = Int32.Parse(n_students.ToString());
+            int l = Int32.Parse(len.ToString());
+            int terms = Int32.Parse(n_terms.ToString());
             string des = desc.ToString();
 
             bool proj = false;
             bool b = false;
             bool sb = false;
-            string sys = "";
 
 
             if (projector.IsChecked == true)
@@ -54,23 +61,8 @@ namespace Schedule
             }
 
 
-            if (os1.IsChecked == true)
-            {
-                sys = "windows";
-            }
 
-            if (os2.IsChecked == true)
-            {
-                sys = "linux";
-            }
-
-            if (os1.IsChecked == true && os2.IsChecked == true)
-            {
-                sys = "windows, linux";
-            }
-
-
-            //foreach (Model.Classroom el in MainWindow.classrooms)
+            //foreach (Model.Subject el in MainWindow.subjects)
             //{
             //    if (el.ID.Equals(_id))
             //    {
@@ -81,9 +73,9 @@ namespace Schedule
 
 
             //!!!
-            Model.Classroom c = new Model.Classroom(_id, des, ns, proj, b, sb, sys, new List<Model.Software>());
+            //Model.Subject s = new Model.Subject(_id, name, new Model.Course(), des, size_of_group, l, terms, proj, b, sb, ops);
 
-            //MainWindow.classrooms.Add(c);
+            //MainWindow.subjects.Add(s);
             this.Hide();
 
         }
@@ -91,20 +83,37 @@ namespace Schedule
 
         public void Cancel_click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
-        public void Add_software_Click(object sender, EventArgs e)
+        private void Radio_Click(object sender, RoutedEventArgs e)
         {
-
-            //ChooseSoftwareWindow w = new ChooseSoftwareWindow();
-            //evo ne znam sta da radim majke mi
+            if (win.IsChecked == true)
+            {
+                ops = "windows";
+            }
+            else if (lin.IsChecked == true)
+            {
+                ops = "linux";
+            }
+            else
+            {
+                ops = "others";
+            }
 
         }
 
-        private void Cancel_click(object sender, RoutedEventArgs e)
+
+        public void Add_course_click(object sender, EventArgs e)
         {
-            this.Hide();
+            //AddCourseWindow w = new AddCourseWindow();
+            //nisam pametan
+        }
+
+        public void Add_software_click(object sender, EventArgs e)
+        {
+            //AddSoftwareWindow w = new AddSoftwareWindow();
+            // -||-
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -113,5 +122,6 @@ namespace Schedule
             this.Hide();
             //Do whatever you want here..
         }
+
     }
 }

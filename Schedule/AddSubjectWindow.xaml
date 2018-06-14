@@ -1,0 +1,119 @@
+﻿<Window x:Class="Schedule.AddSubjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Schedule"
+        mc:Ignorable="d"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="AddSubjectWindow" Height="435" Width="550">
+    <Grid Margin="7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <xctk:WatermarkTextBox Watermark="enter id" Margin="0 0 0 7" Name="id" Grid.Row="0"/>
+
+
+
+        <xctk:WatermarkTextBox Watermark="enter name"  Margin="0 0 0 7" Name="n" Grid.Row="1"/>
+
+        <xctk:WatermarkTextBox Watermark="enter size of group" Name="n_students" Margin="0 0 0 7" Grid.Row="2"/>
+
+        <xctk:WatermarkTextBox Watermark="enter minimum length of term(in 45 minutes)" Margin="0 0 0 7" Name="len" Grid.Row="3"/>
+
+        <xctk:WatermarkTextBox Watermark="enter number of terms" Name="n_terms" Margin="0 0 0 7" Grid.Row="4"/>
+
+        <xctk:WatermarkTextBox Name="desc"
+                  TextWrapping="Wrap"
+                  AcceptsReturn="True"
+                  Watermark="enter description"
+                  VerticalScrollBarVisibility="Visible" Grid.Row="5" Margin="0 0 0 7"/>
+
+
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Name="projector" Grid.Column="0" Grid.Row="0">
+                projector
+            </CheckBox>
+
+            <CheckBox Name="board" Grid.Column="1" Grid.Row="0">
+                board
+            </CheckBox>
+
+            <CheckBox Name="smart_board" Grid.Column="2" Grid.Row="0">
+                smart board
+            </CheckBox>
+        </Grid>
+
+
+        <Label HorizontalAlignment="Center" Grid.Row="7" Height="27" VerticalAlignment="Top">
+            operating system:
+        </Label>
+
+        <Grid Grid.Row="8" Height="20" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="2" GroupName="os" Content="linux" x:Name="lin" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="3" GroupName="os" Content="others" x:Name="cp" Checked="Radio_Click"/>
+        </Grid>
+
+
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Button Grid.Column="0" Height="25" VerticalAlignment="Bottom" Margin="0 0 5 0">Add course</Button>
+            <Button Grid.Column="1" Height="25" VerticalAlignment="Bottom" Margin="5 0 0 0">Add software</Button>
+
+
+
+        </Grid>
+
+
+
+        <Grid Grid.Row="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="4" Height="25" VerticalAlignment="Bottom" Margin="0 0 5 0" Click="Add_subject_click">Add</Button>
+            <Button Grid.Column="5" Height="25" VerticalAlignment="Bottom" Margin="5 0 0 0" Click="Cancel_click">Cancel</Button>
+
+        </Grid>
+    </Grid>
+</Window>

@@ -26,7 +26,11 @@ namespace Schedule
         private Table table;
         SearchWindow sw;
         FilterWindow fw;
-        AddClassroomWindow acw;
+
+        AddClassroomWindow aclassroomw;
+        AddSubjectWindow asubjectw;
+        AddCourseWindow acoursew;
+        AddSoftwareWindow asoftwarew;
 
         private ObservableCollection<Subject> subjects;
         private ObservableCollection<Course> courses;
@@ -40,9 +44,23 @@ namespace Schedule
             InitializeComponent();
             InitItems();
             InitTable();
-            acw = new AddClassroomWindow();
-            acw.Hide();
+            InitWindows();
             AddEventHandlers();
+        }
+
+        public void InitWindows()
+        {
+            aclassroomw = new AddClassroomWindow();
+            aclassroomw.Hide();
+
+            asubjectw = new AddSubjectWindow();
+            asubjectw.Hide();
+
+            acoursew = new AddCourseWindow();
+            acoursew.Hide();
+
+            asoftwarew = new AddSoftwareWindow();
+            asoftwarew.Hide();
         }
 
         private void InitTable()
@@ -452,7 +470,22 @@ namespace Schedule
 
         private void add_new_classroom_clicked(object sender, RoutedEventArgs e)
         {
-            acw.Show();
+            aclassroomw.Show();
+        }
+
+        private void add_new_subject_clicked(object sender, RoutedEventArgs e)
+        {
+            asubjectw.Show();
+        }
+
+        private void add_new_course_clicked(object sender, RoutedEventArgs e)
+        {
+            acoursew.Show();
+        }
+
+        private void add_new_software_clicked(object sender, RoutedEventArgs e)
+        {
+            asoftwarew.Show();
         }
     }
 }

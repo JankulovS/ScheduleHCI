@@ -1,0 +1,83 @@
+﻿<Window x:Class="Schedule.AddSoftwareWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Schedule"
+        mc:Ignorable="d"
+         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="AddSoftwareWindow" Height="425" Width="550">
+    <Grid Margin="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <xctk:WatermarkTextBox Watermark="enter id" Margin="0 0 0 7" Name="id" Grid.Row="0"/>
+
+
+        <xctk:WatermarkTextBox Watermark="enter name"  Margin="0 0 0 7" Name="n" Grid.Row="1"/>
+
+        <xctk:WatermarkTextBox Watermark="enter maker" Name="mak" Margin="0 0 0 7" Grid.Row="2"/>
+
+        <xctk:WatermarkTextBox Watermark="enter website" Name="web" Margin="0 0 0 7" Grid.Row="3"/>
+
+
+        <xctk:WatermarkTextBox Watermark="enter year of publication" Margin="0 0 0 7" Name="y" Grid.Row="4"/>
+
+        <xctk:WatermarkTextBox Watermark="enter price" Name="p" Margin="0 0 0 7" Grid.Row="5"/>
+
+        <xctk:WatermarkTextBox Name="desc"
+                  TextWrapping="Wrap"
+                  AcceptsReturn="True"
+                  Watermark="enter description"
+                  VerticalScrollBarVisibility="Visible" Grid.Row="6" Margin="0 0 0 7"/>
+
+
+        <Label HorizontalAlignment="Center" Grid.Row="7" Height="27" VerticalAlignment="Top">
+            support operating system:
+        </Label>
+
+        <Grid Grid.Row="8" Height="20" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+            <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="2" GroupName="os" Content="linux" x:Name="lin" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="3" GroupName="os" Content="cross-platform" x:Name="cp" Checked="Radio_Click"/>
+        </Grid>
+
+
+
+        <Grid Grid.Row="9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="4" Height="20" VerticalAlignment="Bottom" Margin="0 0 6 1" Click="Add_software_click">Add</Button>
+            <Button Grid.Column="5" Height="20" VerticalAlignment="Bottom" Margin="6 0 0 1" Click="Cancel_click">Cancel</Button>
+
+        </Grid>
+
+    </Grid>
+</Window>
