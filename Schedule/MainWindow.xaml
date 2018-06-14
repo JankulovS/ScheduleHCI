@@ -34,8 +34,8 @@
                 <MenuItem Header="_Add Software" Click="add_new_software_clicked"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help">
-                <MenuItem Header="_View Help"/>
-                <MenuItem Header="Start Demo Mode" Click="start_demo_mode_clicked"/>
+                <MenuItem Header="_View Help">
+                </MenuItem>
             </MenuItem>
         </Menu>
 

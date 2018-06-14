@@ -627,10 +627,5 @@ namespace Schedule
         {
             _mainWindow.subjects.Add(s);
         }
-
-        private void start_demo_mode_clicked(object sender, RoutedEventArgs e)
-        {
-            DemoShowcase.StartDemo();
-        }
     }
 }
