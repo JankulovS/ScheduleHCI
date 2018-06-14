@@ -819,8 +819,10 @@ namespace Schedule
                 }
                 _subjectsUI.ItemsSource = newSubjects;
 
+                string time = list.ElementAt(deleteIdx).timesList;
+                
                 list.RemoveAt(deleteIdx);
-                list.Insert(deleteIdx, new DataObject { timesList = (deleteIdx + 7) + ":00", subjectsList = "" });
+                list.Insert(deleteIdx, new DataObject { timesList = time , subjectsList = "" });
                 this.tableGrid.ItemsSource = list;
 
                 Console.WriteLine("deleted item at position " + deleteIdx);
