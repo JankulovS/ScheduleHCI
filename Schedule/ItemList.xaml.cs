@@ -199,7 +199,7 @@ namespace Schedule
         {
             ListView list = sender as ListView;
             Classroom classroom = list.SelectedItem as Classroom;
-            Console.WriteLine(classroom.ID);
+            //Console.WriteLine(classroom.ID);
             Table.ChangeClassroomLabel(classroom.ID);
         }
     }
