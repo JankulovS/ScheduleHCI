@@ -40,6 +40,8 @@
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Help">
                 </MenuItem>
+                <MenuItem Header="Demo Mode" Click="Demo_Mode_Clicked">
+                </MenuItem>
             </MenuItem>
         </Menu>
 

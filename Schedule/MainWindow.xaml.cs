@@ -645,5 +645,10 @@ namespace Schedule
         {
 
         }
+
+        private void Demo_Mode_Clicked(object sender, RoutedEventArgs e)
+        {
+            DemoShowcase.StartDemo();
+        }
     }
 }
