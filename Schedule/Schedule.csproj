@@ -99,6 +99,7 @@
     <Compile Include="AddSubjectWindow.xaml.cs">
       <DependentUpon>AddSubjectWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DemoShowcase.cs" />
     <Compile Include="VisualHelper.cs" />
     <Compile Include="Commands\RoutedCommands.cs" />
     <Compile Include="FilterWindow.xaml.cs">
