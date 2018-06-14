@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -37,7 +39,7 @@ namespace Schedule
         private ObservableCollection<Software> software;
         private ObservableCollection<Classroom> classrooms;
 
-        private static MainWindow _mainWindow;
+        public static MainWindow _mainWindow;
 
         public MainWindow()
         {
@@ -71,6 +73,25 @@ namespace Schedule
             grid.Children.Add(table);
             Grid.SetColumn(table, 1);
         }
+
+        //public void Save()
+        //{
+        //    using (FileStream stream = new FileStream(@"D:\Test.xaml", FileMode.Create))
+        //    {
+        //        XamlWriter.Save(this.Content, stream);
+        //    }
+        //}
+
+        //public void Load()
+        //{
+        //    if (File.Exists(@"C:\Test.xaml"))
+        //    {
+        //        using (FileStream stream = new FileStream(@"D:\Test.xaml", FileMode.Open))
+        //        {
+        //            this.Content = XamlReader.Load(stream);
+        //        }
+        //    }
+        //}
 
         private void InitItems()
         {

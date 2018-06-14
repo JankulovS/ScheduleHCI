@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -26,6 +27,7 @@ namespace Schedule
 
     public class ScheduleData
     {
+        public string classroom;
         public List<Table.DataObject> listMonday { get; set; }
         public List<Table.DataObject> listTuesday { get; set; }
         public List<Table.DataObject> listWednesday { get; set; }
@@ -68,76 +70,100 @@ namespace Schedule
 
         public static void SaveSchedule()
         {
-            XmlSerializer xs = new XmlSerializer(typeof(ScheduleData));
+            //MainWindow._mainWindow.Save();
+            XmlSerializer xs = new XmlSerializer(typeof(List<ScheduleData>));
             TextWriter tw = new StreamWriter(Directory.GetCurrentDirectory() + "\\schedule.xml");
 
-            ScheduleData sch = new ScheduleData();
-            sch.listMonday = _table.listMonday.ToList<Table.DataObject>();
-            sch.listTuesday = _table.listTuesday.ToList<Table.DataObject>();
-            sch.listWednesday = _table.listWednesday.ToList<Table.DataObject>();
-            sch.listThursday = _table.listThursday.ToList<Table.DataObject>();
-            sch.listFriday = _table.listFriday.ToList<Table.DataObject>();
-            sch.listSaturday = _table.listSaturday.ToList<Table.DataObject>();
+            List<ScheduleData> ser_data = new List<ScheduleData>();
+
+            foreach (var data in _classrooms)
+            {
+                ScheduleData sch = new ScheduleData();
+                sch.classroom = data.Key;
+                sch.listMonday = data.Value.listMonday.ToList<Table.DataObject>();
+                sch.listTuesday = data.Value.listTuesday.ToList<Table.DataObject>();
+                sch.listWednesday = data.Value.listWednesday.ToList<Table.DataObject>();
+                sch.listThursday = data.Value.listThursday.ToList<Table.DataObject>();
+                sch.listFriday = data.Value.listFriday.ToList<Table.DataObject>();
+                sch.listSaturday = data.Value.listSaturday.ToList<Table.DataObject>();
+                ser_data.Add(sch);
+            }
+
+            //ScheduleData sch = new ScheduleData();
 
 
-            xs.Serialize(tw, sch);
+            xs.Serialize(tw, ser_data);
             Console.WriteLine("Saved schedule!");
         }
 
         public static void LoadSchedule()
         {
-            XmlSerializer xs = new XmlSerializer(typeof(ScheduleData));
+            //MainWindow._mainWindow.Load();
+
+            XmlSerializer xs = new XmlSerializer(typeof(List<ScheduleData>));
             using (var sr = new StreamReader(Directory.GetCurrentDirectory() + "\\schedule.xml"))
             {
-                ScheduleData sch = (ScheduleData)xs.Deserialize(sr);
+                List<ScheduleData> ser_data = (List<ScheduleData>)xs.Deserialize(sr);
 
+                //ScheduleData sch = (ScheduleData)xs.Deserialize(sr);
 
-                var list = new ObservableCollection<Table.DataObject>();
-                foreach (var item in sch.listMonday)
+                foreach(var sch in ser_data)
                 {
-                    list.Add(item);
-                }
-                _table.listMonday = list;
+                    var list = new List<Table.DataObject>();
+                    _classrooms[sch.classroom] = new ScheduleData();
+                    foreach (var item in sch.listMonday)
+                    {
+                        list.Add(item);
+                    }
+                    _classrooms[sch.classroom].listMonday = list;
 
-                list = new ObservableCollection<Table.DataObject>();
-                foreach (var item in sch.listTuesday)
-                {
-                    list.Add(item);
-                }
-                _table.listTuesday = list;
+                    list = new List<Table.DataObject>();
+                    foreach (var item in sch.listTuesday)
+                    {
+                        list.Add(item);
+                    }
+                    _classrooms[sch.classroom].listTuesday = list;
 
-                list = new ObservableCollection<Table.DataObject>();
-                foreach (var item in sch.listWednesday)
-                {
-                    list.Add(item);
-                }
-                _table.listWednesday = list;
+                    list = new List<Table.DataObject>();
+                    foreach (var item in sch.listWednesday)
+                    {
+                        list.Add(item);
+                    }
+                    _classrooms[sch.classroom].listWednesday = list;
 
-                list = new ObservableCollection<Table.DataObject>();
-                foreach (var item in sch.listThursday)
-                {
-                    list.Add(item);
-                }
-                _table.listThursday = list;
+                    list = new List<Table.DataObject>();
+                    foreach (var item in sch.listThursday)
+                    {
+                        list.Add(item);
+                    }
+                    _classrooms[sch.classroom].listThursday = list;
 
-                list = new ObservableCollection<Table.DataObject>();
-                foreach (var item in sch.listFriday)
-                {
-                    list.Add(item);
-                }
-                _table.listFriday = list;
+                    list = new List<Table.DataObject>();
+                    foreach (var item in sch.listFriday)
+                    {
+                        list.Add(item);
+                    }
+                    _classrooms[sch.classroom].listFriday = list;
 
-                list = new ObservableCollection<Table.DataObject>();
-                foreach (var item in sch.listSaturday)
-                {
-                    list.Add(item);
+                    list = new List<Table.DataObject>();
+                    foreach (var item in sch.listSaturday)
+                    {
+                        list.Add(item);
+                    }
+                    _classrooms[sch.classroom].listSaturday = list;
                 }
-                _table.listSaturday = list;
+
+                
 
 
                 Console.WriteLine("Loaded schedule!");
 
                 // refresh UI.
+
+                _labelClassroom.Content = _classrooms.Keys.First();
+                ChangeClassroomSchedule((_labelClassroom.Content.ToString()));
+                ItemList._itemList.lv3.SelectedIndex = 0;
+
                 if (_table.Monday.IsSelected)
                 {
                     _table.tableGrid.ItemsSource = _table.listMonday;

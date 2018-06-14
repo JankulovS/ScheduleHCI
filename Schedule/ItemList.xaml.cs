@@ -39,6 +39,8 @@ namespace Schedule
         private int i;
         Point startPoint = new Point();
 
+        public static ItemList _itemList;
+
         public event EventHandler SearchHandler;
         public event EventHandler FilterHandler;
         
@@ -48,6 +50,7 @@ namespace Schedule
             i = 1;
             InitializeComponent();
             i = 2;
+            _itemList = this;
             this.DataContext = this;
         }
 
