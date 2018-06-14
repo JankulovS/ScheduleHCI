@@ -35,13 +35,13 @@ namespace Schedule
 
         public void Add_software_click(object sender, EventArgs e)
         {
-            string _id = id.ToString();
-            string name = n.ToString();
-            string maker = mak.ToString();
-            string website = web.ToString();
-            int year = Int32.Parse(y.ToString());
-            float price = float.Parse(p.ToString());
-            string des = desc.ToString();
+            string _id = id.Text.ToString();
+            string name = n.Text.ToString();
+            string maker = mak.Text.ToString();
+            string website = web.Text.ToString();
+            int year = Int32.Parse(y.Text.ToString());
+            float price = float.Parse(p.Text.ToString());
+            string des = desc.Text.ToString();
 
             //foreach (Model.Software el in MainWindow.software)
             //{
@@ -54,9 +54,9 @@ namespace Schedule
 
 
 
-            //Model.Software s = new Model.Software(_id, name, ops, maker, website, year, price, des);
+            Model.Software s = new Model.Software(_id, name, ops, maker, website, year, price, des);
 
-            //MainWindow.software.Add(s);
+            MainWindow.AddSoftware(s);
             this.Hide();
 
         }

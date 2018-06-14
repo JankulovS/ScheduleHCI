@@ -37,10 +37,12 @@ namespace Schedule
         private ObservableCollection<Software> software;
         private ObservableCollection<Classroom> classrooms;
 
-        
+        private static MainWindow _mainWindow;
 
         public MainWindow()
         {
+            _mainWindow = this;
+
             InitializeComponent();
             InitItems();
             InitTable();
@@ -486,6 +488,26 @@ namespace Schedule
         private void add_new_software_clicked(object sender, RoutedEventArgs e)
         {
             asoftwarew.Show();
+        }
+
+        public static void AddClassroom(Classroom c)
+        {
+            _mainWindow.classrooms.Add(c);
+        }
+
+        public static void AddCourse(Course c)
+        {
+            _mainWindow.courses.Add(c);
+        }
+
+        public static void AddSoftware(Software s)
+        {
+            _mainWindow.software.Add(s);
+        }
+
+        public static void AddSubject(Subject s)
+        {
+            _mainWindow.subjects.Add(s);
         }
     }
 }

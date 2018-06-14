@@ -33,12 +33,12 @@ namespace Schedule
 
         public void Add_subject_click(object sender, EventArgs e)
         {
-            string _id = id.ToString();
-            string name = n.ToString();
-            int size_of_group = Int32.Parse(n_students.ToString());
-            int l = Int32.Parse(len.ToString());
-            int terms = Int32.Parse(n_terms.ToString());
-            string des = desc.ToString();
+            string _id = id.Text.ToString();
+            string name = n.Text.ToString();
+            int size_of_group = Int32.Parse(n_students.Text.ToString());
+            int l = Int32.Parse(len.Text.ToString());
+            int terms = Int32.Parse(n_terms.Text.ToString());
+            string des = desc.Text.ToString();
 
             bool proj = false;
             bool b = false;
@@ -73,9 +73,9 @@ namespace Schedule
 
 
             //!!!
-            //Model.Subject s = new Model.Subject(_id, name, new Model.Course(), des, size_of_group, l, terms, proj, b, sb, ops);
+            Model.Subject s = new Model.Subject(_id, name, new Model.Course(), des, size_of_group, l, terms, 0, proj, b, sb, ops);
 
-            //MainWindow.subjects.Add(s);
+            MainWindow.AddSubject(s);
             this.Hide();
 
         }

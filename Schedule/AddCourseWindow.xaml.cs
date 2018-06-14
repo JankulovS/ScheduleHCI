@@ -32,10 +32,10 @@ namespace Schedule
 
         public void Add_course(object sender, RoutedEventArgs e)
         {
-            string _id = id.ToString();
-            string name = n.ToString();
-            string date = d.ToString();
-            string description = desc.ToString();
+            string _id = id.Text.ToString();
+            string name = n.Text.ToString();
+            DateTime date = DateTime.Parse( d.Text.ToString());
+            string description = desc.Text.ToString();
 
 
             //foreach (Model.Course c in MainWindow.courses)
@@ -48,9 +48,9 @@ namespace Schedule
             //}
 
 
-            //Model.Course course = new Model.Course(_id, name, date, description);
+            Model.Course course = new Model.Course(_id, name, date, description);
 
-            //MainWindow.courses.Add(course);
+            MainWindow.AddCourse(course);
 
             this.Hide();
 

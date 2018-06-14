@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Schedule.Model
 {
-    class Classroom
+    public class Classroom
     {
         private string id;
         private string description;

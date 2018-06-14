@@ -26,11 +26,11 @@ namespace Schedule
             InitializeComponent();
         }
 
-        public void Add_classrom_click(object sender, EventArgs e)
+        public void Add_classroom_click(object sender, EventArgs e)
         {
-            string _id = id.ToString();
-            int ns = Int32.Parse(seats.ToString());
-            string des = desc.ToString();
+            string _id = id.Text.ToString();
+            int ns = Int32.Parse(seats.Text.ToString());
+            string des = desc.Text.ToString();
 
             bool proj = false;
             bool b = false;
@@ -83,7 +83,7 @@ namespace Schedule
             //!!!
             Model.Classroom c = new Model.Classroom(_id, des, ns, proj, b, sb, sys, new List<Model.Software>());
 
-            //MainWindow.classrooms.Add(c);
+            MainWindow.AddClassroom(c);
             this.Hide();
 
         }
@@ -113,5 +113,6 @@ namespace Schedule
             this.Hide();
             //Do whatever you want here..
         }
+
     }
 }
