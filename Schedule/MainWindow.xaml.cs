@@ -1,4 +1,5 @@
-﻿using Schedule.Model;
+﻿using Microsoft.Win32;
+using Schedule.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -53,6 +54,8 @@ namespace Schedule
         
 
         public static MainWindow _mainWindow;
+        public static string _file;
+
 
         public MainWindow()
         {
@@ -496,20 +499,36 @@ namespace Schedule
 
         private void Save_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Table.SaveSchedule();
-            SaveEntities();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Schedules (*.sch)|*.sch";
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                _file = saveFileDialog.FileName;
+                _file = _file.Remove(_file.Length - 4, 4);
+                Console.WriteLine(_file);
+                Table.SaveSchedule();
+                SaveEntities();
+            }
         }
 
         private void Load_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            Table.LoadSchedule();
-            LoadEntities();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Schedules (*.sch)|*.sch";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                _file = openFileDialog.FileName;
+                _file = _file.Remove(_file.Length - 4, 4);
+                Console.WriteLine(_file);
+                Table.LoadSchedule();
+                LoadEntities();
+            }
         }
 
         private void SaveEntities()
         {
             XmlSerializer xs = new XmlSerializer(typeof(EntityData));
-            TextWriter tw = new StreamWriter(Directory.GetCurrentDirectory() + "\\schedule.ent");
+            TextWriter tw = new StreamWriter(_file + ".ent");
 
             EntityData ser_data = new EntityData();
 
@@ -527,7 +546,7 @@ namespace Schedule
         private void LoadEntities()
         {
             XmlSerializer xs = new XmlSerializer(typeof(EntityData));
-            using (var sr = new StreamReader(Directory.GetCurrentDirectory() + "\\schedule.ent"))
+            using (var sr = new StreamReader(_file + ".ent"))
             {
                 EntityData ser_data = (EntityData)xs.Deserialize(sr);
 

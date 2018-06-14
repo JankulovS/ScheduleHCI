@@ -204,7 +204,14 @@ namespace Schedule
             ListView list = sender as ListView;
             Classroom classroom = list.SelectedItem as Classroom;
             //Console.WriteLine(classroom.ID);
-            Table.ChangeClassroomLabel(classroom.ID);
+            try
+            {
+                Table.ChangeClassroomLabel(classroom.ID);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

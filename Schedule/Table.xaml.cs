@@ -72,7 +72,7 @@ namespace Schedule
         {
             //MainWindow._mainWindow.Save();
             XmlSerializer xs = new XmlSerializer(typeof(List<ScheduleData>));
-            TextWriter tw = new StreamWriter(Directory.GetCurrentDirectory() + "\\schedule.sch");
+            TextWriter tw = new StreamWriter(MainWindow._file + ".sch");
 
             List<ScheduleData> ser_data = new List<ScheduleData>();
 
@@ -101,7 +101,7 @@ namespace Schedule
             //MainWindow._mainWindow.Load();
 
             XmlSerializer xs = new XmlSerializer(typeof(List<ScheduleData>));
-            using (var sr = new StreamReader(Directory.GetCurrentDirectory() + "\\schedule.sch"))
+            using (var sr = new StreamReader(MainWindow._file + ".sch"))
             {
                 List<ScheduleData> ser_data = (List<ScheduleData>)xs.Deserialize(sr);
 
