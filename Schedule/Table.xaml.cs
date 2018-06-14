@@ -682,9 +682,9 @@ namespace Schedule
 
                 Subject subject = e.Data.GetData("myFormat") as Subject;
 
-                if (subject.NoOfClasses == subject.NoOfClassesSet)
+                if (subject.NoOfClasses == subject.NoOfClassesSet && swap_idx < 0)
                 {
-                    MessageBox.Show("Subjec already added maximum number of times.");
+                    MessageBox.Show("Subject already added maximum number of times.");
                     return;
                 }
 
@@ -795,6 +795,8 @@ namespace Schedule
 
                 _classrooms[_classroom] = sch;
 
+
+
                 if (_isNewDrop)
                 {
                     var newSubjects = new ObservableCollection<Subject>();
@@ -809,6 +811,21 @@ namespace Schedule
                     }
                     _subjectsUI.ItemsSource = newSubjects;
                 }
+
+                if (obj.subjectsList != "" && swap_idx < 0)
+                {
+                    var newSubjects = new ObservableCollection<Subject>();
+
+                    foreach (var item in _subjects)
+                    {
+                        if (item.Name == obj.subjectsList)
+                        {
+                            item.NoOfClassesSet = item.NoOfClassesSet - 1;
+                        }
+                        newSubjects.Add(item);
+                    }
+                    _subjectsUI.ItemsSource = newSubjects;
+                } 
                 
 
                 // reset
