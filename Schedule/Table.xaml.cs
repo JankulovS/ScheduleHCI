@@ -679,7 +679,14 @@ namespace Schedule
                     return;
                 }
 
+
                 Subject subject = e.Data.GetData("myFormat") as Subject;
+
+                if (subject.NoOfClasses == subject.NoOfClassesSet)
+                {
+                    MessageBox.Show("Subjec already added maximum number of times.");
+                    return;
+                }
 
                 var list = new ObservableCollection<DataObject>();
                 list = (ObservableCollection < DataObject > )tableGrid.ItemsSource;
