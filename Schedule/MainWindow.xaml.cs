@@ -88,6 +88,11 @@ namespace Schedule
             table = new Table();
             grid.Children.Add(table);
             Grid.SetColumn(table, 1);
+
+            DropPanel dp = new DropPanel();
+            grid.Children.Add(dp);
+            Grid.SetColumn(dp, 1);
+
         }
 
         //public void Save()
