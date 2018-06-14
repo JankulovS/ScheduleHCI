@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Schedule.Table"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:DataGridMovableRows"
+             mc:Ignorable="d" 
+             d:DesignHeight="430" d:DesignWidth="600">
+    <Grid>
+        <TabControl 
+            SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Name="Monday" Header="Monday">
+            </TabItem>
+            <TabItem Name="Tuesday" Header="Tuesday">
+            </TabItem>
+            <TabItem Name="Wednesday" Header="Wednesday">
+            </TabItem>
+            <TabItem Name="Thursday" Header="Thursday">
+            </TabItem>
+            <TabItem Name="Friday" Header="Friday">
+            </TabItem>
+            <TabItem Name="Saturday" Header="Saturday">
+            </TabItem>
+        </TabControl>
+        <Label Content="Classroom:                         " HorizontalAlignment="Right"/>
+        <Label Name="labelClassroom" Content="NOT SELECTED" HorizontalAlignment="Right"/>
+        <DataGrid AutoGenerateColumns="False" 
+                  Height="400" 
+                  Name="tableGrid"
+                  IsReadOnly="True"
+                  CanUserSortColumns="False"
+                  CanUserResizeColumns="False"
+                  CanUserResizeRows="False"
+                  RowHeight="22.6"
+                  HorizontalAlignment="Left"  
+                  VerticalAlignment="Top"
+                  HeadersVisibility="None"
+                  SelectionMode="Single"
+                  PreviewKeyDown="GridTable_PreviewKeyDown"
+                  PreviewMouseLeftButtonDown="GridMove_PreviewMoouseLeftButtonDown"
+                  MouseMove="GridMove_MouseMove"
+                  AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop"
+                  Width="600" Margin="0,30,0,0">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseEnter" Handler="Row_MouseEnter"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns >
+                <DataGridTextColumn Binding="{Binding Path=timesList}" Width="10*"/>
+                <DataGridTextColumn Binding="{Binding Path=subjectsList}" Width="90*"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+    </Grid>
+</UserControl>

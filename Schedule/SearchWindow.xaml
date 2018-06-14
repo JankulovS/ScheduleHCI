@@ -1,0 +1,31 @@
+﻿<Window x:Class="Schedule.SearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cmd="clr-namespace:Schedule.Commands"
+        mc:Ignorable="d"
+        Title="SearchWindow" Height="120" Width="250" ResizeMode="NoResize">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.SearchCommand" Executed="search_Click"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.EndSearch" Executed="CommandBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="label" Grid.Row="0" VerticalAlignment="Bottom">&#160;&#160;&#160;&#160;&#160;&#160;
+                            &#160;&#160;Search:</Label>
+        <TextBox x:Name="searchBox" Grid.Row="1" Height="22" Width="170" VerticalAlignment="Top">
+        </TextBox>
+        <Button x:Name="search" Grid.Row="2" Height="20" Width="70" Click="search_Click">Search</Button>
+    </Grid>
+</Window>
