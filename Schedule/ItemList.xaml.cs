@@ -42,6 +42,7 @@ namespace Schedule
         public event EventHandler SearchHandler;
         public event EventHandler FilterHandler;
         
+        
         public ItemList()
         {
             i = 1;

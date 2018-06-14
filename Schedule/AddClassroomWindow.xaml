@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Schedule"
              mc:Ignorable="d" 
              Width="450" Height="335" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
-
+             
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid Margin="7">

@@ -28,6 +28,7 @@
             </MenuItem>
             <MenuItem Header="_Tools">
                 <MenuItem Header="_Checkable" IsCheckable="True" IsChecked="True" />
+                <MenuItem Header="_Add New Classroom" Click="add_new_classroom_clicked"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Help">

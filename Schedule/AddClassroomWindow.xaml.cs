@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,5 +102,16 @@ namespace Schedule
 
         }
 
+        private void Cancel_click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
+            //Do whatever you want here..
+        }
     }
 }
