@@ -76,13 +76,29 @@ namespace Schedule
             Model.Subject s = new Model.Subject(_id, name, new Model.Course(), des, size_of_group, l, terms, 0, proj, b, sb, ops);
 
             MainWindow.AddSubject(s);
+            ResetWindow();
             this.Hide();
 
+        }
+
+        private void ResetWindow()
+        {
+            id.Text = "";
+            n.Text = "";
+            n_students.Text = "";
+            len.Text = "";
+            n_terms.Text = "";
+            desc.Text = "";
+
+            projector.IsChecked = false;
+            board.IsChecked = false;
+            smart_board.IsChecked = false;
         }
 
 
         public void Cancel_click(object sender, EventArgs e)
         {
+            ResetWindow();
             this.Close();
         }
 
@@ -118,6 +134,7 @@ namespace Schedule
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            ResetWindow();
             e.Cancel = true;
             this.Hide();
             //Do whatever you want here..

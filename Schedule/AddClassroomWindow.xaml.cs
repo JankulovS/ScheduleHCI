@@ -84,13 +84,27 @@ namespace Schedule
             Model.Classroom c = new Model.Classroom(_id, des, ns, proj, b, sb, sys, new List<Model.Software>());
 
             MainWindow.AddClassroom(c);
+
+            ResetWindow();
             this.Hide();
 
         }
 
+        private void ResetWindow()
+        {
+            id.Text = "";
+            seats.Text = "";
+            desc.Text = "";
+            projector.IsChecked = false;
+            board.IsChecked = false;
+            smart_board.IsChecked = false;
+            os1.IsChecked = false;
+            os2.IsChecked = false;
+        }
 
         public void Cancel_click(object sender, EventArgs e)
         {
+            ResetWindow();
             this.Hide();
         }
 
@@ -104,11 +118,13 @@ namespace Schedule
 
         private void Cancel_click(object sender, RoutedEventArgs e)
         {
+            ResetWindow();
             this.Hide();
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            ResetWindow();
             e.Cancel = true;
             this.Hide();
             //Do whatever you want here..

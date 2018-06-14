@@ -55,15 +55,31 @@ namespace Schedule
 
 
             Model.Software s = new Model.Software(_id, name, ops, maker, website, year, price, des);
-
             MainWindow.AddSoftware(s);
+        
+
+
+            ResetWindow();
+
             this.Hide();
 
+        }
+
+        private void ResetWindow()
+        {
+            id.Text = "";
+            n.Text = "";
+            mak.Text = "";
+            web.Text = "";
+            y.Text = "";
+            p.Text = "";
+            desc.Text = "";
         }
 
 
         public void Cancel_click(object sender, EventArgs e)
         {
+            ResetWindow();
             this.Hide();
         }
 
@@ -87,6 +103,7 @@ namespace Schedule
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
+            ResetWindow();
             this.Hide();
             //Do whatever you want here..
         }

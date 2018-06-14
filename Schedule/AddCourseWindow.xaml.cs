@@ -51,19 +51,29 @@ namespace Schedule
             Model.Course course = new Model.Course(_id, name, date, description);
 
             MainWindow.AddCourse(course);
-
+            ResetWindow();
             this.Hide();
 
 
         }
 
+        private void ResetWindow()
+        {
+            id.Text = "";
+            n.Text = "";
+            d.Text = "";
+            desc.Text = "";
+        }
+
         public void Cancel_click(object sender, RoutedEventArgs e)
         {
+            ResetWindow();
             this.Hide();
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
+            ResetWindow();
             e.Cancel = true;
             this.Hide();
             //Do whatever you want here..
