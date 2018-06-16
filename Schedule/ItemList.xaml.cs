@@ -48,6 +48,9 @@ namespace Schedule
         public event EventHandler AddCourse;
         public event EventHandler AddSoftware;
 
+        private string text = "Subjects";
+        
+
 
         public ItemList()
         {
@@ -129,7 +132,7 @@ namespace Schedule
                 return;
             }
 
-            string text = (e.AddedItems[0] as ComboBoxItem).Content as string;
+            text = (e.AddedItems[0] as ComboBoxItem).Content as string;
 
             ChangePreview(text);
         }
@@ -243,5 +246,19 @@ namespace Schedule
             AddSoftware(this, EventArgs.Empty);
         }
 
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (text == "Subjects")
+                MainWindow._mainWindow.Subjects.RemoveAt(lv.SelectedIndex);
+            else if (text == "Courses")
+                MainWindow._mainWindow.Courses.RemoveAt(lv.SelectedIndex);
+            else if (text == "Software")
+                MainWindow._mainWindow.Softwares.RemoveAt(lv.SelectedIndex);
+            else if (text == "Classroom")
+                MainWindow._mainWindow.Classrooms.RemoveAt(lv.SelectedIndex);
+
+        }
+
+        
     }
 }

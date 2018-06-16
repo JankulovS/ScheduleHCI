@@ -59,6 +59,9 @@ namespace Schedule
 
         public ObservableCollection<Software> Softwares { get { return software; } set { software = value; } }
         public ObservableCollection<Course> Courses { get { return courses; } set { courses = value; } }
+        public ObservableCollection<Subject> Subjects { get { return subjects; } set { subjects = value; } }
+        public ObservableCollection<Classroom> Classrooms { get { return classrooms; } set { classrooms = value; } }
+
 
 
         public MainWindow()
@@ -167,6 +170,7 @@ namespace Schedule
             itemList.AddSubject += Add_Subject;
             itemList.AddCourse += Add_Course;
             itemList.AddSoftware += Add_Software;
+            Closing += (a, b) => Environment.Exit(0);
         }
 
         private void FilterWin()
