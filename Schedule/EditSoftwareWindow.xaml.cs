@@ -39,15 +39,17 @@ namespace Schedule
         {
             this.s.ID = id.Text;
 
+            int brojac = 0;
             foreach (Model.Software el in MainWindow._mainWindow.Softwares)
             {
-                if (el.ID.Equals(this.s.ID))
+                if (el.ID.Equals(this.s.ID) && brojac != index)
                 {
                     MessageBox.Show("id already exists !!!");
                     ResetWindow();
                     this.Hide();
                     return;
                 }
+                brojac++;
             }
 
 

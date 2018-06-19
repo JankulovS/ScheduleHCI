@@ -76,15 +76,18 @@ namespace Schedule
         {
             c.ID = this.id.Text;
 
+            int b = 0;
+
             foreach (Model.Classroom el in MainWindow._mainWindow.Classrooms)
             {
-                if (el.ID.Equals(c.ID))
+                if (el.ID.Equals(c.ID) && b != index)
                 {
                     MessageBox.Show("id already exists !!!");
                     ResetWindow();
                     this.Hide();
                     return;
                 }
+                b++;
             }
 
 
