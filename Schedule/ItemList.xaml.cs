@@ -275,7 +275,7 @@ namespace Schedule
                 Edit_Classroom(lv2.SelectedIndex);
             }else if(text == "Subjects")
             {
-                Edit_Subject(lv2.SelectedIndex);
+                Edit_Subject(lv.SelectedIndex);
             }
 
             
