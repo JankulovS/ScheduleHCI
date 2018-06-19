@@ -69,7 +69,7 @@
                                     <MenuItem Header="Add Course" Command="cmd:RoutedCommands.AddCourse"/>
                                     <MenuItem Header="Add Software" Command="cmd:RoutedCommands.AddSoftware"/>
                                     <Separator />
-                                    <MenuItem Header="Edit" />
+                                    <MenuItem Header="Edit" Click="Edit_Click"/>
                                     <MenuItem Header="Delete" Click="MenuItem_Click" />
                                 </ContextMenu>
                             </TextBlock.ContextMenu>

@@ -1,0 +1,130 @@
+﻿<Window x:Class="Schedule.EditClassroomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Schedule"
+        mc:Ignorable="d"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="EditClassroomWindow" Height="525" Width="510">
+    <Grid Margin="7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="0.3*"/>
+
+        </Grid.RowDefinitions>
+
+
+        <xctk:WatermarkTextBox Watermark="enter id" Name="id" Grid.Row="0" Margin="0 0 0 10"/>
+
+
+        <xctk:WatermarkTextBox Watermark="enter number of seats" Name="seats" Grid.Row="1" Margin="0 0 0 10" PreviewTextInput="NumberValidationTextBox"/>
+
+
+        <xctk:WatermarkTextBox
+                  Name="desc"
+                  TextWrapping="Wrap"
+                  AcceptsReturn="True"
+                  Watermark="enter description"
+                  VerticalScrollBarVisibility="Visible" Grid.Row="2" Margin="0 0 0 10"
+            >
+
+        </xctk:WatermarkTextBox>
+
+
+
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Name="projector" Grid.Column="0" Grid.Row="0">
+                projector
+            </CheckBox>
+
+            <CheckBox Name="board" Grid.Column="1" Grid.Row="0">
+                board
+            </CheckBox>
+
+            <CheckBox Name="smart_board" Grid.Column="2" Grid.Row="0">
+                smart board
+            </CheckBox>
+        </Grid>
+
+
+        <Label HorizontalAlignment="Center" Grid.Row="4">
+            operating system:
+        </Label>
+
+
+
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+
+
+            <CheckBox Name="os1" Grid.Column="1">
+                windows
+            </CheckBox>
+
+            <CheckBox Name="os2" Grid.Column="2">
+                linux
+            </CheckBox>
+        </Grid>
+
+
+        <Label Content="Softwares:" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Bottom"/>
+
+        <Grid Grid.Row="7">
+
+            <DataGrid Name="kolekcija" AutoGenerateColumns="False" Grid.Row="0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                    <DataGridTextColumn Header="name" Binding="{Binding Name}" Width="100"/>
+                    <DataGridTextColumn Header="os" Binding="{Binding Os}" Width="100"/>
+                    <DataGridTextColumn Header="maker" Binding="{Binding Maker}" Width="100"/>
+                    <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="100"/>
+                    <DataGridCheckBoxColumn Header="necessary" Binding="{Binding MyBool}" />
+
+
+                </DataGrid.Columns>
+
+
+
+            </DataGrid>
+
+
+        </Grid>
+
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="4" Height="20" VerticalAlignment="Bottom" Margin="0 0 5 0" Click="Edit_Classroom">Edit</Button>
+            <Button Grid.Column="5" Height="20" VerticalAlignment="Bottom" Margin="5 0 0 0" Click="Cancel_click">Cancel</Button>
+
+        </Grid>
+
+    </Grid>
+</Window>

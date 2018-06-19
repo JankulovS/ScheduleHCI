@@ -259,6 +259,142 @@ namespace Schedule
 
         }
 
-        
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if(text == "Courses")
+            {
+                Edit_course(lv.SelectedIndex);
+            }else if(text == "Software")
+            {
+                Edit_Software(lv.SelectedIndex);
+            }else if(text == "Classroom")
+            {
+                Edit_Classroom(lv.SelectedIndex);
+            }else if(text == "Subjects")
+            {
+                Edit_Subject(lv.SelectedIndex);
+            }
+
+            
+        }
+
+        private void Edit_course(int index)
+        {
+            Course c = MainWindow._mainWindow.Courses[index];
+            EditCourseWindow w = new EditCourseWindow(c);
+
+            w.id.Text = c.ID;
+            w.n.Text = c.Name;
+            w.desc.Text = c.Description;
+            w.d.Text = c.Date.ToString();
+
+
+
+            w.Show();
+        }
+
+        private void Edit_Software(int index)
+        {
+            Software s = MainWindow._mainWindow.Softwares[index];
+            EditSoftwareWindow w = new EditSoftwareWindow(s);
+
+            w.id.Text = s.ID;
+            w.n.Text = s.Name;
+            w.mak.Text = s.Maker;
+            w.web.Text = s.Website;
+            w.y.Text = s.Year.ToString();
+            w.p.Text = s.Price.ToString();
+            w.desc.Text = s.Description;
+
+
+            if (s.OS.ToLower() == "windows")
+            {
+                w.win.IsChecked = true;
+            }
+            else if (s.OS.ToLower() == "linux")
+            {
+                w.lin.IsChecked = true;
+            }
+            else
+            {
+                s.OS.ToLower();
+                w.cp.IsChecked = true;
+            }
+            w.Show();
+        }
+
+
+        private void Edit_Classroom(int index)
+        {
+            Classroom c = MainWindow._mainWindow.Classrooms[index];
+            EditClassroomWindow w = new EditClassroomWindow(c);
+
+            w.id.Text = c.ID;
+            w.seats.Text = c.NoOfSeats.ToString();
+            w.desc.Text = c.Description;
+
+
+            if (c.Projector) {
+                w.projector.IsChecked = true;
+            }
+
+            if (c.SmartBoard)
+            {
+                w.smart_board.IsChecked = true;
+            }
+
+            if (c.Board)
+            {
+                w.board.IsChecked = true;
+            }
+
+            if(c.System.ToLower() == "windows")
+            {
+                w.os1.IsChecked = true;
+            }
+
+            if (c.System.ToLower() == "linux")
+            {
+                w.os2.IsChecked = true;
+            }
+
+            if (c.System.ToLower() == "windows, linux")
+            {
+                w.os1.IsChecked = true;
+                w.os2.IsChecked = true;
+            }
+        }
+
+        private void Edit_Subject(int index)
+        {
+            Subject s = MainWindow._mainWindow.Subjects[index];
+
+            EditSubjectWindow w = new EditSubjectWindow(s);
+
+            w.id.Text = s.ID;
+            w.n.Text = s.Name;
+            w.n_students.Text = s.GroupSize.ToString();
+            w.len.Text = s.ClassLength.ToString();
+            w.n_terms.Text = s.NoOfClasses.ToString();
+            w.desc.Text = s.Description;
+
+            w.projector.IsChecked = s.Projector == true;
+            w.board.IsChecked = s.Board == true;
+            w.smart_board.IsChecked = s.SmartBoard == true;
+
+            if(s.OS.ToLower() == "windows")
+            {
+                w.win.IsChecked = true;
+            }else if(s.OS.ToLower() == "linux")
+            {
+                w.lin.IsChecked = true;
+            }
+            else if(s.OS.ToLower() == "windows, linux")
+            {
+                w.cp.IsChecked = true;
+            }
+            w.Show();
+        }
+
     }
 }

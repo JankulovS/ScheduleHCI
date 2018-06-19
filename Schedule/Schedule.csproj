@@ -105,6 +105,18 @@
     <Compile Include="DropPanel.xaml.cs">
       <DependentUpon>DropPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditClassroomWindow.xaml.cs">
+      <DependentUpon>EditClassroomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditCourseWindow.xaml.cs">
+      <DependentUpon>EditCourseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSoftwareWindow.xaml.cs">
+      <DependentUpon>EditSoftwareWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSubjectWindow.xaml.cs">
+      <DependentUpon>EditSubjectWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SoftwareTableItem.cs" />
     <Compile Include="VisualHelper.cs" />
     <Compile Include="Commands\RoutedCommands.cs" />
@@ -135,6 +147,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DropPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditClassroomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditCourseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSoftwareWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSubjectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
