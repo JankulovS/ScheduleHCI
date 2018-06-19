@@ -68,8 +68,6 @@ namespace Schedule
             this.smart_board.IsChecked = false;
             this.os1.IsChecked = false;
             this.os2.IsChecked = false;
-
-
         }
 
         private void Edit_Classroom(object sender, RoutedEventArgs e)
@@ -100,12 +98,11 @@ namespace Schedule
 
 
             int brojac = 0;
+            c.Software = new List<Software>();
             foreach (var item in kolekcija.ItemsSource)
             {
 
                 SoftwareTableItem i = (SoftwareTableItem)item;
-
-                c.Software = new List<Software>();
 
                 if (i.MyBool == true)
                 {
