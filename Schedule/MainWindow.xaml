@@ -34,7 +34,7 @@
                 <MenuItem Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_Tools">
-                <MenuItem Header="_Checkable" IsCheckable="True" IsChecked="True" />
+                
                 <MenuItem Header="_Add Classroom" Command="cmd:RoutedCommands.AddClassroom"></MenuItem>
                 <MenuItem Header="_Add Subject" Command="cmd:RoutedCommands.AddSubject"></MenuItem>
                 <MenuItem Header="_Add Course" Command="cmd:RoutedCommands.AddCourse"></MenuItem>
