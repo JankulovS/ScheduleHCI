@@ -38,6 +38,21 @@ namespace Schedule
         private void Edit_Software(object sender, RoutedEventArgs e)
         {
             this.s.ID = id.Text;
+
+            foreach (Model.Software el in MainWindow._mainWindow.Softwares)
+            {
+                if (el.ID.Equals(this.s.ID))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
+
+
+
+
             this.s.Name = n.Text;
             this.s.Maker = mak.Text;
             this.s.Website = web.Text;

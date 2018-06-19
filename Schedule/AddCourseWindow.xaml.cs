@@ -45,14 +45,16 @@ namespace Schedule
             string description = desc.Text.ToString();
 
 
-            //foreach (Model.Course c in MainWindow.courses)
-            //{
-            //    if (c.ID.Equals(_id))
-            //    {
-            //        MessageBox.Show("id already exists !!!");
-            //        return;
-            //    }
-            //}
+            foreach (Model.Course c in MainWindow._mainWindow.Courses)
+            {
+                if (c.ID.Equals(_id))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
 
 
             Model.Course course = new Model.Course(_id, name, date, description);

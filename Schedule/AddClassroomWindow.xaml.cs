@@ -97,14 +97,16 @@ namespace Schedule
             }
 
 
-            //foreach (Model.Classroom el in MainWindow.classrooms)
-            //{
-            //    if (el.ID.Equals(_id))
-            //    {
-            //        MessageBox.Show("id already exists !!!");
-            //        return;
-            //    }
-            //}
+            foreach (Model.Classroom el in MainWindow._mainWindow.Classrooms)
+            {
+                if (el.ID.Equals(_id))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
 
 
             //!!!

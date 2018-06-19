@@ -51,26 +51,24 @@ namespace Schedule
             float price = float.Parse(p.Text.ToString());
             string des = desc.Text.ToString();
 
-            //foreach (Model.Software el in MainWindow.software)
-            //{
-            //    if (el.ID.Equals(_id))
-            //    {
-            //        MessageBox.Show("id already exists !!!");
-            //        return;
-            //    }
-            //}
+            foreach (Model.Software el in MainWindow._mainWindow.Softwares)
+            {
+                if (el.ID.Equals(_id))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
 
 
 
             Model.Software s = new Model.Software(_id, name, ops, maker, website, year, price, des);
             MainWindow.AddSoftware(s);
         
-
-
             ResetWindow();
-
             this.Hide();
-
         }
 
         private void ResetWindow()

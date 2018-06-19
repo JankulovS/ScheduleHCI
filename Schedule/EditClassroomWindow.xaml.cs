@@ -75,6 +75,20 @@ namespace Schedule
         private void Edit_Classroom(object sender, RoutedEventArgs e)
         {
             c.ID = this.id.Text;
+
+            foreach (Model.Classroom el in MainWindow._mainWindow.Classrooms)
+            {
+                if (el.ID.Equals(c.ID))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
+
+
+
             c.NoOfSeats = Int32.Parse(this.seats.Text);
             c.Description = this.desc.Text;
 

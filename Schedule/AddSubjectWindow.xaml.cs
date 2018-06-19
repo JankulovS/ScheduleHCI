@@ -111,14 +111,16 @@ namespace Schedule
 
 
 
-            //foreach (Model.Subject el in MainWindow.subjects)
-            //{
-            //    if (el.ID.Equals(_id))
-            //    {
-            //        MessageBox.Show("id already exists !!!");
-            //        return;
-            //    }
-            //}
+            foreach (Model.Subject el in MainWindow._mainWindow.Subjects)
+            {
+                if (el.ID.Equals(_id))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
 
 
             //!!!
