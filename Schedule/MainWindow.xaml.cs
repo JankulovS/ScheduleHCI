@@ -51,7 +51,7 @@ namespace Schedule
         private ObservableCollection<Software> software;
         private ObservableCollection<Classroom> classrooms;
 
-        
+        public event EventHandler NewScheduleEvent;
 
         public static MainWindow _mainWindow;
         public static string _file;
@@ -139,7 +139,7 @@ namespace Schedule
             itemList.Classrooms = classrooms;
             itemList.lv2.ItemsSource = itemList.Classrooms;
             itemList.lv3.ItemsSource = subjects;
-
+            NewScheduleEvent += NewScheduleEventTrigger;
         }
 
         private void UseDummyData()
@@ -665,7 +665,36 @@ namespace Schedule
 
         private void Demo_Mode_Clicked(object sender, RoutedEventArgs e)
         {
-            DemoShowcase.StartDemo();
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult rsltMessageBox = MessageBox.Show("The demo mode will abandon the current schedule and any unsaved data will be lost. Are you sure?", "Warning", btnMessageBox, icnMessageBox);
+
+            switch (rsltMessageBox)
+            {
+                case MessageBoxResult.Yes:
+                    subjects = new ObservableCollection<Subject>();
+                    courses = new ObservableCollection<Course>();
+                    software = new ObservableCollection<Software>();
+                    classrooms = new ObservableCollection<Classroom>();
+
+                    UseDummyData();
+
+                    itemList.Courses = courses;
+                    itemList.Software = software;
+                    itemList.Subjects = subjects;
+                    itemList.lv.ItemsSource = itemList.Subjects;
+                    itemList.Classrooms = classrooms;
+                    itemList.lv2.ItemsSource = itemList.Classrooms;
+                    itemList.lv3.ItemsSource = subjects;
+                    DemoShowcase.NewScheduleEvent += NewScheduleEventTrigger;
+                    DemoShowcase.StartDemo();
+                    break;
+
+                case MessageBoxResult.No:
+                    break;
+            }
+            //DemoShowcase.StartDemo();
         }
 
         private void New_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -687,7 +716,12 @@ namespace Schedule
             }
         }
 
-        private void NewSchedule()
+        public void NewScheduleEventTrigger(object sender, EventArgs e)
+        {
+            NewSchedule();
+        }
+
+        public void NewSchedule()
         {
 
             Subjects = new ObservableCollection<Subject>();

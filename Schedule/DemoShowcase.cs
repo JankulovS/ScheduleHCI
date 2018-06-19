@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Schedule
 {
@@ -17,6 +18,9 @@ namespace Schedule
 
     class DemoShowcase
     {
+        public static event EventHandler NewScheduleEvent;
+
+
         // window offset
         static int windowX;
         static int windowY;
@@ -76,6 +80,7 @@ namespace Schedule
             ypos += windowY;
 
 
+
             Point startPoint = GetMousePosition();
             double startX = startPoint.X;
             double startY = startPoint.Y;
@@ -133,6 +138,8 @@ namespace Schedule
         {
             if (KeysDown().Any())
             {
+                // radiiiiii
+                MainWindow._mainWindow.Dispatcher.BeginInvoke((ThreadStart)(() => NewScheduleEvent(null, EventArgs.Empty)));
                 return true;
             }
             return false;
@@ -149,7 +156,7 @@ namespace Schedule
 
         public static void StartDemo()
         {
-
+            
             windowX = (int)MainWindow._mainWindow.Left;
             windowY = (int)MainWindow._mainWindow.Top;
             Thread thread = new Thread(Demo);
