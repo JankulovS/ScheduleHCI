@@ -61,6 +61,32 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
+                        <TextBlock Text="{Binding ID}" FontWeight="Bold">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Add Classroom" Command="cmd:RoutedCommands.AddClassroom"/>
+                                    <MenuItem Header="Add Subject" Command="cmd:RoutedCommands.AddSubject"/>
+                                    <MenuItem Header="Add Course" Command="cmd:RoutedCommands.AddCourse"/>
+                                    <MenuItem Header="Add Software" Command="cmd:RoutedCommands.AddSoftware"/>
+                                    <Separator />
+                                    <MenuItem Header="Edit" Click="Edit_Click"/>
+                                    <MenuItem Header="Delete" Click="MenuItem_Click" />
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>
+                        </TextBlock>
+                        <TextBlock Text=": " FontWeight="Bold">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Add Classroom" Command="cmd:RoutedCommands.AddClassroom"/>
+                                    <MenuItem Header="Add Subject" Command="cmd:RoutedCommands.AddSubject"/>
+                                    <MenuItem Header="Add Course" Command="cmd:RoutedCommands.AddCourse"/>
+                                    <MenuItem Header="Add Software" Command="cmd:RoutedCommands.AddSoftware"/>
+                                    <Separator />
+                                    <MenuItem Header="Edit" Click="Edit_Click"/>
+                                    <MenuItem Header="Delete" Click="MenuItem_Click" />
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>
+                        </TextBlock>
                         <TextBlock Text="{Binding Name}" FontWeight="Bold">
                             <TextBlock.ContextMenu>
                                 <ContextMenu>
