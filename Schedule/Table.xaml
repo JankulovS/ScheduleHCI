@@ -24,8 +24,8 @@
         </TabControl>
         <Label Content="Classroom:                         " HorizontalAlignment="Right"/>
         <Label Name="labelClassroom" Content="NOT SELECTED" HorizontalAlignment="Right"/>
-        <DataGrid AutoGenerateColumns="False" 
-                  Height="338" 
+        <DataGrid AutoGenerateColumns="False"
+                  Height="340" 
                   Name="tableGrid"
                   IsReadOnly="True"
                   CanUserSortColumns="False"
@@ -40,7 +40,8 @@
                   PreviewMouseLeftButtonDown="GridMove_PreviewMoouseLeftButtonDown"
                   MouseMove="GridMove_MouseMove"
                   AllowDrop="True" DragEnter="ListView_DragEnter" Drop="ListView_Drop"
-                  Width="600" Margin="0,30,0,0">
+                  Width="600" Margin="0,30,0,0"
+                  ScrollViewer.CanContentScroll="False">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseEnter" Handler="Row_MouseEnter"/>

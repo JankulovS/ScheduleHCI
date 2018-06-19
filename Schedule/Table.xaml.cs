@@ -712,7 +712,7 @@ namespace Schedule
                 // racunaj poziciju
                 Point mousePosition = e.GetPosition(tableGrid);
                 double mouseY = mousePosition.Y;
-                double screenHeight = tableGrid.Height -40;
+                double screenHeight = tableGrid.Height;// -40;
                 selectedRow = (int)(((mouseY) / (screenHeight)) * 20);
                 if (selectedRow > 20)
                 {
@@ -723,6 +723,12 @@ namespace Schedule
                 
 
                 DataObject obj = list.ElementAt(selectedRow);
+
+                if (obj.subjectsList == subject.Name)
+                {
+                    return;
+                }
+
                 list.RemoveAt(selectedRow);
                 list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
                 if (obj.subjectsList == subject.Name)
