@@ -28,7 +28,7 @@ namespace Schedule
             FillDataGrid();
         }
 
-        private void FillDataGrid()
+        public void FillDataGrid()
         {
             var listItem = new List<SoftwareTableItem>();
 

@@ -130,7 +130,20 @@ namespace Schedule
             software = new ObservableCollection<Software>();
             classrooms = new ObservableCollection<Classroom>();
 
-            //Privremeni podaci---------------------------------------------------------
+            UseDummyData();
+
+            itemList.Courses = courses;
+            itemList.Software = software;
+            itemList.Subjects = subjects;
+            itemList.lv.ItemsSource = itemList.Subjects;
+            itemList.Classrooms = classrooms;
+            itemList.lv2.ItemsSource = itemList.Classrooms;
+            itemList.lv3.ItemsSource = subjects;
+
+        }
+
+        private void UseDummyData()
+        {
 
 
             courses.Add(new Course("Prvi", "SIIT", new DateTime(), "opis"));
@@ -145,22 +158,13 @@ namespace Schedule
             l.Add(new Software("ID1", "Photoshop", "Windows", "Adobe", "www.newst.com", 2017, 2015, "opis"));
 
             subjects.Add(new Subject { ID = "Prvi", Name = "Interakcija covek racunar", Course = new Course("Prvi", "SIIT", new DateTime(), "opis"), Description = "asd", ClassLength = 1, NoOfClasses = 3, GroupSize = 3, Projector = true, Board = true, SmartBoard = true, OS = "Windows", Software = new List<Software>() });
-            subjects.Add(new Subject("Drugi", "Metodologije razvoja softvera", new Course("Prvi", "E2", new DateTime(), "opis"), "asd", 1, 3, 2, 0,true, true, true, "Windows", l));
+            subjects.Add(new Subject("Drugi", "Metodologije razvoja softvera", new Course("Prvi", "E2", new DateTime(), "opis"), "asd", 1, 3, 2, 0, true, true, true, "Windows", l));
             subjects.Add(new Subject("Treci", "Pisana i govorna komunikacija u tehnici", new Course("Prvi", "PSI", new DateTime(), "opis"), "asd", 1, 3, 3, 0, true, true, true, "Windows", new List<Software>()));
-            
+
 
             classrooms.Add(new Classroom("IC1", "Internet centar ucionica 1", 40, true, true, false, "Windows", l));
             classrooms.Add(new Classroom("JUG-112", "Jugodrvo ucionica 112", 60, true, true, false, "Windows", l));
             classrooms.Add(new Classroom("RC-6", "Racunarski centar ucionica 6", 40, true, false, false, "Linux", l));
-            //-------------------------------------------------------------------------------
-            itemList.Courses = courses;
-            itemList.Software = software;
-            itemList.Subjects = subjects;
-            itemList.lv.ItemsSource = itemList.Subjects;
-            itemList.Classrooms = classrooms;
-            itemList.lv2.ItemsSource = itemList.Classrooms;
-            itemList.lv3.ItemsSource = subjects;
-
         }
         private void AddEventHandlers()
         {
@@ -609,11 +613,13 @@ namespace Schedule
 
         private void Add_Classroom(object sender, EventArgs e)
         {
+            aclassroomw.FillDataGrid();
             aclassroomw.Show();
         }
 
         private void Add_Subject(object sender, EventArgs e)
         {
+            asubjectw.Refill();
             asubjectw.Show();
         }
 
@@ -655,6 +661,49 @@ namespace Schedule
         private void Demo_Mode_Clicked(object sender, RoutedEventArgs e)
         {
             DemoShowcase.StartDemo();
+        }
+
+        private void New_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            MessageBoxButton btnMessageBox = MessageBoxButton.YesNo;
+            MessageBoxImage icnMessageBox = MessageBoxImage.Warning;
+
+            MessageBoxResult rsltMessageBox = MessageBox.Show("Unsaved changes will be lost. Proceed?", "Warning", btnMessageBox, icnMessageBox);
+
+            switch (rsltMessageBox)
+            {
+                case MessageBoxResult.Yes:
+
+                    _mainWindow.NewSchedule();
+                    break;
+
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void NewSchedule()
+        {
+
+            Subjects = new ObservableCollection<Subject>();
+            Courses = new ObservableCollection<Course>();
+            Softwares = new ObservableCollection<Software>();
+            Classrooms = new ObservableCollection<Classroom>();
+
+ 
+
+
+            itemList.Courses = courses;
+            itemList.Software = software;
+            itemList.Subjects = subjects;
+            itemList.Classrooms = classrooms;
+
+            itemList.lv.ItemsSource = itemList.Subjects;
+            itemList.lv2.ItemsSource = itemList.Classrooms;
+            itemList.lv3.ItemsSource = subjects;
+
+
+            table.ResetTable();
         }
     }
 }

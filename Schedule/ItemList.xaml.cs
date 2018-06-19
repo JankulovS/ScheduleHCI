@@ -288,7 +288,7 @@ namespace Schedule
             w.desc.Text = c.Description;
             w.d.Text = c.Date.ToString();
 
-
+            
 
             w.Show();
         }
@@ -333,6 +333,7 @@ namespace Schedule
             w.seats.Text = c.NoOfSeats.ToString();
             w.desc.Text = c.Description;
 
+            w.FillDataGridSoftwares();
 
             if (c.Projector) {
                 w.projector.IsChecked = true;
@@ -381,6 +382,8 @@ namespace Schedule
             w.projector.IsChecked = s.Projector == true;
             w.board.IsChecked = s.Board == true;
             w.smart_board.IsChecked = s.SmartBoard == true;
+
+            w.Refill();
 
             if(s.OS.ToLower() == "windows")
             {

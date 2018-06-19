@@ -39,6 +39,12 @@ namespace Schedule
 
         }
 
+        public void Refill()
+        {
+            FillDataGridSoftwares();
+            FillComboBoxCourses();
+        }
+
 
         private void FillDataGridSoftwares()
         {

@@ -17,6 +17,7 @@
         <CommandBinding Command="cmd:RoutedCommands.Filter" Executed="FilterWin"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Save" Executed="Save_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.Load" Executed="Load_Executed"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.New" Executed="New_Executed"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.AddClassroom" Executed="Add_Classroom"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.AddSubject" Executed="Add_Subject"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.AddCourse" Executed="Add_Course"></CommandBinding>
@@ -26,8 +27,10 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
+                <MenuItem Header="New Schedule" Command="cmd:RoutedCommands.New"/>
                 <MenuItem Header="_Save Schedule" Command="cmd:RoutedCommands.Save"/>
                 <MenuItem Header="_Load Schedule" Command="cmd:RoutedCommands.Load"/>
+                <Separator></Separator>
                 <MenuItem Header="_Exit" />
             </MenuItem>
             <MenuItem Header="_Tools">
@@ -40,6 +43,7 @@
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Help">
                 </MenuItem>
+                <Separator></Separator>
                 <MenuItem Header="Demo Mode" Click="Demo_Mode_Clicked">
                 </MenuItem>
             </MenuItem>

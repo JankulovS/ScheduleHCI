@@ -69,6 +69,17 @@ namespace Schedule.Commands
             {
                 new KeyGesture(Key.L, ModifierKeys.Control)
             }
+            );  
+        
+        // new schedule
+        public static readonly RoutedUICommand New = new RoutedUICommand(
+            "New",
+            "New",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.N, ModifierKeys.Control)
+            }
             );
 
         public static readonly RoutedUICommand AddClassroom = new RoutedUICommand(

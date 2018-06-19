@@ -87,11 +87,11 @@
         <Grid Grid.Row="10">
             <DataGrid Name="soft" AutoGenerateColumns="False" Grid.Row="0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                    <DataGridTextColumn Header="name" Binding="{Binding Name}" Width="100"/>
-                    <DataGridTextColumn Header="os" Binding="{Binding Os}" Width="100"/>
-                    <DataGridTextColumn Header="maker" Binding="{Binding Maker}" Width="100"/>
-                    <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="100"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="name" Binding="{Binding Name}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="os" Binding="{Binding Os}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="maker" Binding="{Binding Maker}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="100" IsReadOnly="True"/>
                     <DataGridCheckBoxColumn Header="necessary" Binding="{Binding MyBool}" />
 
                 </DataGrid.Columns>

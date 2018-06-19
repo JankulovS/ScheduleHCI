@@ -488,6 +488,24 @@ namespace Schedule
             _classrooms = new Dictionary<string, ScheduleData>();
         }
 
+        public void ResetTable()
+        {
+            _labelClassroom = labelClassroom;
+            swap_idx = -1;
+            _table = this;
+            _isNewDrop = true;
+            _classrooms.Clear();
+            listMonday = new ObservableCollection<DataObject>();
+            listTuesday = new ObservableCollection<DataObject>();
+            listWednesday = new ObservableCollection<DataObject>();
+            listThursday = new ObservableCollection<DataObject>();
+            listFriday = new ObservableCollection<DataObject>();
+            listSaturday = new ObservableCollection<DataObject>();
+            InitTimes();
+            _labelClassroom.Content = "NOT SELECTED";
+
+        }
+
         public void InitTimes()
         {
 

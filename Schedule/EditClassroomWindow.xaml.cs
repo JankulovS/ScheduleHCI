@@ -33,7 +33,7 @@ namespace Schedule
             FillDataGridSoftwares();
         }
 
-        private void FillDataGridSoftwares()
+        public void FillDataGridSoftwares()
         {
             var listItem = new List<SoftwareTableItem>();
 
