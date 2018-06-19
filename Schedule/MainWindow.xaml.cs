@@ -744,5 +744,11 @@ namespace Schedule
 
             table.ResetTable();
         }
+
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            string path = @"..\..\Schedule User Manual.chm";
+            System.Diagnostics.Process.Start(path);
+        }
     }
 }

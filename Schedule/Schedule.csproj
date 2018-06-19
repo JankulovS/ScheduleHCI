@@ -229,6 +229,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Schedule User Manual.chm" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
