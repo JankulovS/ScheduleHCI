@@ -303,6 +303,7 @@ namespace Schedule
 
 
                 itemList.lv.ItemsSource = filterRes;
+                itemList.lv3.ItemsSource = filterRes;
                 Grid.SetRow(itemList.lv, 3);
                 Grid.SetRow(itemList.lv3, 3);
 
@@ -434,7 +435,7 @@ namespace Schedule
             {
                 foreach (Subject s in subjects)
                 {
-                    if (s.Name.ToLower().Contains(param.ToLower()))
+                    if ((s.Name.ToLower() + s.ID.ToLower()).Contains(param.ToLower()))
                     {
                         searchRes.Add(s);
                     }
@@ -444,7 +445,7 @@ namespace Schedule
             {
                 foreach (Course c in courses)
                 {
-                    if (c.Name.ToLower().Contains(param.ToLower()))
+                    if ((c.Name.ToLower() + c.ID.ToLower()).Contains(param.ToLower()))
                     {
                         searchRes.Add(c);
                     }
@@ -454,7 +455,7 @@ namespace Schedule
             {
                 foreach (Software s in software)
                 {
-                    if (s.Name.ToLower().Contains(param.ToLower()))
+                    if ((s.Name.ToLower() + s.ID.ToLower()).Contains(param.ToLower()))
                     {
                         searchRes.Add(s);
                     }
@@ -497,6 +498,10 @@ namespace Schedule
             else
             {
                 itemList.lv.ItemsSource = searchRes;
+                if (what == "Subjects")
+                {
+                    itemList.lv3.ItemsSource = searchRes;
+                }
                 Grid.SetRow(itemList.lv, 3);
                 Grid.SetRow(itemList.lv3, 3);
                 itemList.lv.Visibility = Visibility.Visible;

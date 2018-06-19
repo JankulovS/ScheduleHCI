@@ -162,6 +162,7 @@ namespace Schedule
             if (text == "Subjects")
             {
                 lv.ItemsSource = Subjects;
+                lv3.ItemsSource = Subjects;
                 lv.Visibility = Visibility.Visible;
                 lv2.Visibility = Visibility.Hidden;
                 Filter.IsEnabled = true;
