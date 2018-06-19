@@ -105,7 +105,7 @@
         <Label Content="Softwares: " HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Bottom"/>
 
         <Grid Grid.Row="7">
-            <DataGrid Name="soft" AutoGenerateColumns="False" Grid.Row="0">
+            <DataGrid Name="soft" AutoGenerateColumns="False" Grid.Row="0" CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="name" Binding="{Binding Name}" Width="100"/>

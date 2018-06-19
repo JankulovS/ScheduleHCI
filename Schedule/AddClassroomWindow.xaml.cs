@@ -38,8 +38,12 @@ namespace Schedule
                 listItem.Add(new SoftwareTableItem() { ID = s.ID, Name = s.Name, Os = s.OS, Maker = s.Maker, Website = s.Website });
                 
             }
-           
+
+            //MessageBox.Show(listItem.Count.ToString());
+            
             kolekcija.ItemsSource = listItem;
+
+            
         }
 
 
