@@ -129,5 +129,11 @@ namespace Schedule
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            ResetWindow();
+            this.Hide();
+        }
     }
 }
