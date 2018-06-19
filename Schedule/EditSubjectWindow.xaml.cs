@@ -70,6 +70,7 @@ namespace Schedule
 
         private void FillComboBoxCourses()
         {
+            smerovi = new List<string>();
 
             int brojac = 0;
             foreach (Model.Course c in MainWindow._mainWindow.Courses)
