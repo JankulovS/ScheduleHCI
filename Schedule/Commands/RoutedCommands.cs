@@ -121,5 +121,15 @@ namespace Schedule.Commands
                 new KeyGesture(Key.W, ModifierKeys.Alt)
             }
             );
+
+        public static readonly RoutedUICommand Help = new RoutedUICommand(
+            "Help",
+            "Help",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.F1)
+            }
+            );
     }
 }

@@ -750,5 +750,10 @@ namespace Schedule
             string path = @"..\..\Schedule User Manual.chm";
             System.Diagnostics.Process.Start(path);
         }
+        private void CommandBinding_F1(object sender, ExecutedRoutedEventArgs e)
+        {
+            string path = @"..\..\Schedule User Manual.chm";
+            System.Diagnostics.Process.Start(path);
+        }
     }
 }

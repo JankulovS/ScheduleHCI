@@ -22,6 +22,7 @@
         <CommandBinding Command="cmd:RoutedCommands.AddSubject" Executed="Add_Subject"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.AddCourse" Executed="Add_Course"></CommandBinding>
         <CommandBinding Command="cmd:RoutedCommands.AddSoftware" Executed="Add_Software"></CommandBinding>
+        <CommandBinding Command="cmd:RoutedCommands.Help" Executed="CommandBinding_F1"></CommandBinding>
     </Window.CommandBindings>
 
     <DockPanel>
