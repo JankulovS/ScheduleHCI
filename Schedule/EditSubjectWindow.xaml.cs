@@ -130,8 +130,6 @@ namespace Schedule
                 this.s.OS = "windows, linux";
             }
 
-
-
             int brojac = 0;
             s.Software = new List<Software>();
             foreach (var item in soft.ItemsSource)
