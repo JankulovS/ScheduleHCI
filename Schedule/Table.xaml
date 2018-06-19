@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:DataGridMovableRows"
              mc:Ignorable="d" 
-             d:DesignHeight="430" d:DesignWidth="600">
+             d:DesignHeight="368" d:DesignWidth="600">
     <Grid>
         <TabControl 
             SelectionChanged="TabControl_SelectionChanged">
@@ -25,13 +25,13 @@
         <Label Content="Classroom:                         " HorizontalAlignment="Right"/>
         <Label Name="labelClassroom" Content="NOT SELECTED" HorizontalAlignment="Right"/>
         <DataGrid AutoGenerateColumns="False" 
-                  Height="400" 
+                  Height="338" 
                   Name="tableGrid"
                   IsReadOnly="True"
                   CanUserSortColumns="False"
                   CanUserResizeColumns="False"
                   CanUserResizeRows="False"
-                  RowHeight="18.08"
+                  RowHeight="16.9"
                   HorizontalAlignment="Left"  
                   VerticalAlignment="Top"
                   HeadersVisibility="None"

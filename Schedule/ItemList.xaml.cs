@@ -254,22 +254,25 @@ namespace Schedule
                 MainWindow._mainWindow.Courses.RemoveAt(lv.SelectedIndex);
             else if (text == "Software")
                 MainWindow._mainWindow.Softwares.RemoveAt(lv.SelectedIndex);
-            else if (text == "Classroom")
-                MainWindow._mainWindow.Classrooms.RemoveAt(lv.SelectedIndex);
+            else if (text == "Classrooms")
+                MainWindow._mainWindow.Classrooms.RemoveAt(lv2.SelectedIndex);
 
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            if(text == "Courses")
+
+            
+
+            if (text == "Courses")
             {
                 Edit_course(lv.SelectedIndex);
             }else if(text == "Software")
             {
                 Edit_Software(lv.SelectedIndex);
-            }else if(text == "Classroom")
+            }else if(text == "Classrooms")
             {
-                Edit_Classroom(lv.SelectedIndex);
+                Edit_Classroom(lv2.SelectedIndex);
             }else if(text == "Subjects")
             {
                 Edit_Subject(lv.SelectedIndex);
@@ -287,8 +290,6 @@ namespace Schedule
             w.n.Text = c.Name;
             w.desc.Text = c.Description;
             w.d.Text = c.Date.ToString();
-
-            
 
             w.Show();
         }
@@ -333,7 +334,6 @@ namespace Schedule
             w.seats.Text = c.NoOfSeats.ToString();
             w.desc.Text = c.Description;
 
-            w.FillDataGridSoftwares();
 
             if (c.Projector) {
                 w.projector.IsChecked = true;
@@ -364,6 +364,8 @@ namespace Schedule
                 w.os1.IsChecked = true;
                 w.os2.IsChecked = true;
             }
+
+            w.Show();
         }
 
         private void Edit_Subject(int index)
@@ -382,8 +384,6 @@ namespace Schedule
             w.projector.IsChecked = s.Projector == true;
             w.board.IsChecked = s.Board == true;
             w.smart_board.IsChecked = s.SmartBoard == true;
-
-            w.Refill();
 
             if(s.OS.ToLower() == "windows")
             {

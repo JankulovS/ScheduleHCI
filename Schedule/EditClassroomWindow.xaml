@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schedule"
+        xmlns:cmd="clr-namespace:Schedule.Commands"
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="EditClassroomWindow" Height="525" Width="510">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="cmd:RoutedCommands.EndSearch" Executed="CommandBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
+
     <Grid Margin="7">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>

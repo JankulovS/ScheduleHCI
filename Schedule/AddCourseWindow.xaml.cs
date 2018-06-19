@@ -85,5 +85,11 @@ namespace Schedule
             this.Hide();
             //Do whatever you want here..
         }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            ResetWindow();
+            this.Hide();
+        }
     }
 }

@@ -50,12 +50,22 @@
         </Menu>
 
         <Grid Name="grid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="75*"/>
-        </Grid.ColumnDefinitions>
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="75*"/>
+            </Grid.ColumnDefinitions>
 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="368"/>
+                <RowDefinition Height="22"/>
+            </Grid.RowDefinitions>
+            <StatusBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <StatusBarItem>
+                    <TextBlock Name="dockText" Text="Everything is fine" HorizontalAlignment="Right" />
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
 
+        
     </DockPanel>
 </Window>

@@ -136,8 +136,6 @@ namespace Schedule
                 this.s.OS = "windows, linux";
             }
 
-
-
             int brojac = 0;
             s.Software = new List<Software>();
             foreach (var item in soft.ItemsSource)
@@ -168,6 +166,12 @@ namespace Schedule
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            ResetWindow();
+            this.Hide();
         }
     }
 }
