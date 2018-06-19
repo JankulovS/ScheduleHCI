@@ -363,7 +363,7 @@ namespace Schedule
                 w.os2.IsChecked = true;
             }
 
-            if (c.System.ToLower() == "windows, linux")
+            if (c.System.ToLower() == "windows/linux")
             {
                 w.os1.IsChecked = true;
                 w.os2.IsChecked = true;
@@ -398,7 +398,7 @@ namespace Schedule
             {
                 w.lin.IsChecked = true;
             }
-            else if(s.OS.ToLower() == "windows, linux")
+            else if(s.OS.ToLower() == "windows/linux")
             {
                 w.cp.IsChecked = true;
             }

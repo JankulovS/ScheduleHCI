@@ -94,7 +94,7 @@ namespace Schedule
 
             if (this.os1.IsChecked == true && this.os2.IsChecked == true)
             {
-                c.System = "windows, linux";
+                c.System = "Windows/Linux";
             }
 
 

@@ -50,7 +50,7 @@ namespace Schedule
             }else if(lin.IsChecked == true){
                 this.s.OS = "linux";
             }else{
-                this.s.OS = "cross-platform";
+                this.s.OS = "Windows/Linux";
             }
 
             MainWindow._mainWindow.Softwares.RemoveAt(index);

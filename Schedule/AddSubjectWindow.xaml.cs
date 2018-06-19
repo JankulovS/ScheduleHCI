@@ -193,7 +193,7 @@ namespace Schedule
             }
             else
             {
-                ops = "others";
+                ops = "Windows/Linux";
             }
 
         }

@@ -103,7 +103,7 @@ namespace Schedule
             }
             else
             {
-                ops = "cross-platform";
+                ops = "Windows/Linux";
             }
 
         }

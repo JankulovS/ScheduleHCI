@@ -137,7 +137,7 @@ namespace Schedule
             }
             else
             {
-                this.s.OS = "windows, linux";
+                this.s.OS = "Windows/Linux";
             }
 
             int brojac = 0;

@@ -93,7 +93,7 @@ namespace Schedule
 
             if (os1.IsChecked == true && os2.IsChecked == true)
             {
-                sys = "windows, linux";
+                sys = "Windows/Linux";
             }
 
 

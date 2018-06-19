@@ -63,7 +63,7 @@
             </Grid.ColumnDefinitions>
             <RadioButton Grid.Column="1" GroupName="os" Content="windows" x:Name="win" IsChecked="True" Checked="Radio_Click"/>
             <RadioButton Grid.Column="2" GroupName="os" Content="linux" x:Name="lin" Checked="Radio_Click"/>
-            <RadioButton Grid.Column="3" GroupName="os" Content="cross-platform" x:Name="cp" Checked="Radio_Click"/>
+            <RadioButton Grid.Column="3" GroupName="os" Content="windows/linux" x:Name="cp" Checked="Radio_Click"/>
         </Grid>
 
 
