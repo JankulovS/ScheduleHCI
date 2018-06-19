@@ -23,6 +23,8 @@ namespace Schedule
     {
         private Subject s;
 
+        public static int index;
+
         public Subject S { get { return s; } set { s = value; } }
 
         public static List<String> smerovi;
@@ -30,10 +32,11 @@ namespace Schedule
         public static int indeks_smera;
 
 
-        public EditSubjectWindow(Subject obj)
+        public EditSubjectWindow(Subject obj,int i)
         {
             smerovi = new List<string>();
             this.s = obj;
+            index = i;
             InitializeComponent();
             FillDataGridSoftwares();
             FillComboBoxCourses();
@@ -150,7 +153,13 @@ namespace Schedule
                 brojac++;
             }
             indeks_smera = smer.SelectedIndex;
+            
             this.s.Course = MainWindow._mainWindow.Courses[indeks_smera];
+
+            MainWindow._mainWindow.Subjects.RemoveAt(index);
+
+            MainWindow._mainWindow.Subjects.Insert(index, this.s);
+
 
             ResetWindow();
             this.Hide();

@@ -22,12 +22,15 @@ namespace Schedule
     {
         private Course c;
 
+        public static int index;
+
         public Course C { get { return c; } set { c = value; } }
 
 
-        public EditCourseWindow(Course obj)
+        public EditCourseWindow(Course obj,int i)
         {
             this.c = obj;
+            index = i;
             InitializeComponent();
         }
 
@@ -37,6 +40,11 @@ namespace Schedule
             this.c.Name = n.Text;
             this.c.Date = DateTime.Parse(d.Text);
             this.c.Description = desc.Text;
+
+            MainWindow._mainWindow.Courses.RemoveAt(index);
+
+            MainWindow._mainWindow.Courses.Insert(index,this.c);
+
             ResetWindow();
             this.Hide();
         }

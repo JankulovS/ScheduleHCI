@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cmd="clr-namespace:Schedule.Commands"
              mc:Ignorable="d" 
-             Width="525" Height="450" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
+             Width="527" Height="450" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
              
              d:DesignHeight="450" d:DesignWidth="800">
 

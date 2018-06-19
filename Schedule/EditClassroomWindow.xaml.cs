@@ -25,10 +25,12 @@ namespace Schedule
 
         public Classroom C { get { return c; } set { c = value; } }
 
+        public static int index;
 
-        public EditClassroomWindow(Classroom obj)
+        public EditClassroomWindow(Classroom obj,int i)
         {
             this.c = obj;
+            index = i;
             InitializeComponent();
             FillDataGridSoftwares();
         }
@@ -110,6 +112,10 @@ namespace Schedule
                 }
                 brojac++;
             }
+
+            MainWindow._mainWindow.Classrooms.RemoveAt(index);
+
+            MainWindow._mainWindow.Classrooms.Insert(index, this.c);
 
             ResetWindow();
             this.Hide();

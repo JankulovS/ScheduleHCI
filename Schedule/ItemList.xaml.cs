@@ -284,7 +284,7 @@ namespace Schedule
         private void Edit_course(int index)
         {
             Course c = MainWindow._mainWindow.Courses[index];
-            EditCourseWindow w = new EditCourseWindow(c);
+            EditCourseWindow w = new EditCourseWindow(c, index);
 
             w.id.Text = c.ID;
             w.n.Text = c.Name;
@@ -299,7 +299,7 @@ namespace Schedule
         private void Edit_Software(int index)
         {
             Software s = MainWindow._mainWindow.Softwares[index];
-            EditSoftwareWindow w = new EditSoftwareWindow(s);
+            EditSoftwareWindow w = new EditSoftwareWindow(s, index);
 
             w.id.Text = s.ID;
             w.n.Text = s.Name;
@@ -330,7 +330,7 @@ namespace Schedule
         private void Edit_Classroom(int index)
         {
             Classroom c = MainWindow._mainWindow.Classrooms[index];
-            EditClassroomWindow w = new EditClassroomWindow(c);
+            EditClassroomWindow w = new EditClassroomWindow(c, index);
 
             w.id.Text = c.ID;
             w.seats.Text = c.NoOfSeats.ToString();
@@ -375,7 +375,7 @@ namespace Schedule
         {
             Subject s = MainWindow._mainWindow.Subjects[index];
 
-            EditSubjectWindow w = new EditSubjectWindow(s);
+            EditSubjectWindow w = new EditSubjectWindow(s, index);
 
             w.id.Text = s.ID;
             w.n.Text = s.Name;

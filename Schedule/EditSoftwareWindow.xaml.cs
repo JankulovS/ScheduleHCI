@@ -24,11 +24,14 @@ namespace Schedule
     {
         private Software s;
 
+        public static int index;
+
         public Software S { get { return s; } set { s = value; } }
 
-        public EditSoftwareWindow(Software obj)
+        public EditSoftwareWindow(Software obj,int i)
         {
             this.s = obj;
+            index = i;
             InitializeComponent();
         }
 
@@ -50,8 +53,9 @@ namespace Schedule
                 this.s.OS = "cross-platform";
             }
 
-            
+            MainWindow._mainWindow.Softwares.RemoveAt(index);
 
+            MainWindow._mainWindow.Softwares.Insert(index, this.s);
             ResetWindow();
             this.Hide();
         }

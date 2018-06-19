@@ -32,12 +32,13 @@ namespace Schedule
         {
             var listItem = new List<SoftwareTableItem>();
 
+            
             foreach (Model.Software s in MainWindow._mainWindow.Softwares)
             {
                 listItem.Add(new SoftwareTableItem() { ID = s.ID, Name = s.Name, Os = s.OS, Maker = s.Maker, Website = s.Website });
-
+                
             }
-
+           
             kolekcija.ItemsSource = listItem;
         }
 
