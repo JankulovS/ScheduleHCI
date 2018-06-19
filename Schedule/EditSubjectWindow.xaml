@@ -6,7 +6,7 @@
         xmlns:cmd="clr-namespace:Schedule.Commands"
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="EditSubjectWindow" Height="580" Width="545">
+        Title="EditSubjectWindow" Height="450" Width="545">
 
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EndSearch" Executed="CommandBinding_Executed"></CommandBinding>
@@ -21,34 +21,50 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <xctk:WatermarkTextBox Watermark="enter id" Margin="0 0 0 7" Name="id" Grid.Row="0"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <xctk:WatermarkTextBox Watermark="enter id" Margin="0 0 5 7" Name="id" Grid.Column="0"/>
+            <xctk:WatermarkTextBox Watermark="enter name"  Margin="5 0 0 7" Name="n" Grid.Column="1"/>
+
+
+        </Grid>
 
 
 
-        <xctk:WatermarkTextBox Watermark="enter name"  Margin="0 0 0 7" Name="n" Grid.Row="1"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
-        <xctk:WatermarkTextBox Watermark="enter size of group" Name="n_students" Margin="0 0 0 7" Grid.Row="2" PreviewTextInput="NumberValidationTextBox"/>
+            <xctk:WatermarkTextBox Watermark="enter size of group" Name="n_students" Margin="0 0 5 7" Grid.Column="0" PreviewTextInput="NumberValidationTextBox"/>
 
-        <xctk:WatermarkTextBox Watermark="enter minimum length of term(in 45 minutes)" Margin="0 0 0 7" Name="len" Grid.Row="3" PreviewTextInput="NumberValidationTextBox"/>
+            <xctk:WatermarkTextBox Watermark="enter minimum length of term(in 45 minutes)" Margin="5 0 5 7" Name="len" Grid.Column="1" PreviewTextInput="NumberValidationTextBox"/>
 
-        <xctk:WatermarkTextBox Watermark="enter number of terms" Name="n_terms" Margin="0 0 0 7" Grid.Row="4" PreviewTextInput="NumberValidationTextBox"/>
+            <xctk:WatermarkTextBox Watermark="enter number of terms" Name="n_terms" Margin="5 0 0 7" Grid.Column="2" PreviewTextInput="NumberValidationTextBox"/>
+
+
+
+        </Grid>
 
         <xctk:WatermarkTextBox Name="desc"
                   TextWrapping="Wrap"
                   AcceptsReturn="True"
                   Watermark="enter description"
-                  VerticalScrollBarVisibility="Visible" Grid.Row="5" Margin="0 0 0 7"/>
+                  VerticalScrollBarVisibility="Visible" Grid.Row="2" Margin="0 0 0 6"/>
 
 
-        <Grid Grid.Row="6">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -69,11 +85,11 @@
         </Grid>
 
 
-        <Label HorizontalAlignment="Center" Grid.Row="7" Height="27" VerticalAlignment="Top">
+        <Label HorizontalAlignment="Center" Grid.Row="4" Height="27" VerticalAlignment="Top">
             operating system:
         </Label>
 
-        <Grid Grid.Row="8" Height="20" VerticalAlignment="Top">
+        <Grid Grid.Row="5" Height="20" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -87,16 +103,16 @@
             <RadioButton Grid.Column="3" GroupName="os" Content="others" x:Name="cp"/>
         </Grid>
 
-        <Label Content="Softwares: " HorizontalAlignment="Center" Grid.Row="9" VerticalAlignment="Bottom"/>
+        <Label Content="Softwares: " HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Bottom"/>
 
-        <Grid Grid.Row="10">
+        <Grid Grid.Row="7">
             <DataGrid Name="soft" AutoGenerateColumns="False" Grid.Row="0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="name" Binding="{Binding Name}" Width="100" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="os" Binding="{Binding Os}" Width="100" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="maker" Binding="{Binding Maker}" Width="100" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                    <DataGridTextColumn Header="name" Binding="{Binding Name}" Width="100"/>
+                    <DataGridTextColumn Header="os" Binding="{Binding Os}" Width="100"/>
+                    <DataGridTextColumn Header="maker" Binding="{Binding Maker}" Width="100"/>
+                    <DataGridTextColumn Header="website" Binding="{Binding Website}" Width="100"/>
                     <DataGridCheckBoxColumn Header="necessary" Binding="{Binding MyBool}" />
 
                 </DataGrid.Columns>
@@ -106,7 +122,7 @@
 
         </Grid>
 
-        <Grid Grid.Row="11" Height="25">
+        <Grid Grid.Row="8" Height="25">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -123,7 +139,7 @@
 
 
 
-        <Grid Grid.Row="12">
+        <Grid Grid.Row="9">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cmd="clr-namespace:Schedule.Commands"
              mc:Ignorable="d" 
-             Width="525" Height="510" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
+             Width="525" Height="450" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Title="Add classroom"
              
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -17,9 +17,8 @@
 
     <Grid Margin="7">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.35*"/>
             <RowDefinition Height="0.4*"/>
             <RowDefinition Height="0.4*"/>
             <RowDefinition Height="0.4*"/>
@@ -29,19 +28,24 @@
 
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
 
-        <xctk:WatermarkTextBox Watermark="enter id" Name="id" Grid.Row="0" Margin="0 0 0 10"/>
+            </Grid.ColumnDefinitions>
 
+            <xctk:WatermarkTextBox Watermark="enter id" Name="id" Grid.Column="0" Margin="0 0 5 10"/>
+            <xctk:WatermarkTextBox Watermark="enter number of seats" Name="seats" Grid.Column="1" Margin="5 0 0 10" PreviewTextInput="NumberValidationTextBox"/>
 
-        <xctk:WatermarkTextBox Watermark="enter number of seats" Name="seats" Grid.Row="1" Margin="0 0 0 10" PreviewTextInput="NumberValidationTextBox"/>
-
+        </Grid>
 
         <xctk:WatermarkTextBox
                   Name="desc"
                   TextWrapping="Wrap"
                   AcceptsReturn="True"
                   Watermark="enter description"
-                  VerticalScrollBarVisibility="Visible" Grid.Row="2" Margin="0 0 0 10"
+                  VerticalScrollBarVisibility="Visible" Grid.Row="1" Margin="0 0 0 10"
             >
 
         </xctk:WatermarkTextBox>
@@ -49,7 +53,7 @@
 
 
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -69,14 +73,13 @@
             </CheckBox>
         </Grid>
 
-
-        <Label HorizontalAlignment="Center" Grid.Row="4">
+        <Label HorizontalAlignment="Center" Grid.Row="3">
             operating system:
         </Label>
 
 
 
-        <Grid Grid.Row="5">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -96,9 +99,9 @@
         </Grid>
 
 
-        <Label Content="Softwares:" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Bottom"/>
+        <Label Content="Softwares:" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Bottom"/>
 
-        <Grid Grid.Row="7">
+        <Grid Grid.Row="6">
 
             <DataGrid Name="kolekcija" AutoGenerateColumns="False" Grid.Row="0">
                 <DataGrid.Columns>
@@ -119,7 +122,7 @@
 
         </Grid>
 
-        <Grid Grid.Row="8">
+        <Grid Grid.Row="7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>

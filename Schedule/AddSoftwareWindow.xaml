@@ -6,7 +6,7 @@
         xmlns:cmd="clr-namespace:Schedule.Commands"
         mc:Ignorable="d"
          xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="AddSoftwareWindow" Height="425" Width="550">
+        Title="AddSoftwareWindow" Height="420" Width="550">
 
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EndSearch" Executed="CommandBinding_Executed"></CommandBinding>

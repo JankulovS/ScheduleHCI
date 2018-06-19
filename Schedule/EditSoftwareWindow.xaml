@@ -6,7 +6,7 @@
         xmlns:cmd="clr-namespace:Schedule.Commands"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="EditSoftwareWindow" Height="425" Width="550">
+        Title="EditSoftwareWindow" Height="420" Width="550">
 
     <Window.CommandBindings>
         <CommandBinding Command="cmd:RoutedCommands.EndSearch" Executed="CommandBinding_Executed"></CommandBinding>
