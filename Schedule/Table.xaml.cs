@@ -729,7 +729,7 @@ namespace Schedule
                     return;
                 }
 
-                // check if there is enough free slots
+                // check if there are enough free slots
                 for (int i = 0; i < subject.ClassLength; i++)
                 {
                     try
@@ -760,81 +760,92 @@ namespace Schedule
                     list.RemoveAt(selectedRow + i);
                     list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
                 }
+
+                if (swap_idx >= 0)
+                {
+                    string swap_name = list.ElementAt(swap_idx).subjectsList;
+                    string swap_time = list.ElementAt(swap_idx).timesList;
+                    list.RemoveAt(selectedRow);
+                    list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                    list.RemoveAt(swap_idx);
+                    list.Insert(swap_idx, new DataObject { timesList = swap_time, subjectsList = obj.subjectsList });
+                }
+
                 //list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
                 if (obj.subjectsList == subject.Name)
                 {
                     _isNewDrop = false;
                 }
 
-                if (swap_idx >= 0)
-                {
-                    list.RemoveAt(swap_idx);
-                    switch(swap_idx)
-                    {
-                        case 0:
-                            list.Insert(swap_idx, new DataObject { timesList = "7:00", subjectsList = obj.subjectsList });
-                            break;
-                        case 1:
-                            list.Insert(swap_idx, new DataObject { timesList = "7:45", subjectsList = obj.subjectsList });
-                            break;
-                        case 2:
-                            list.Insert(swap_idx, new DataObject { timesList = "8:30", subjectsList = obj.subjectsList });
-                            break;
-                        case 3:
-                            list.Insert(swap_idx, new DataObject { timesList = "9:15", subjectsList = obj.subjectsList });
-                            break;
-                        case 4:
-                            list.Insert(swap_idx, new DataObject { timesList = "10:00", subjectsList = obj.subjectsList });
-                            break;
-                        case 5:
-                            list.Insert(swap_idx, new DataObject { timesList = "10:45", subjectsList = obj.subjectsList });
-                            break;
-                        case 6:
-                            list.Insert(swap_idx, new DataObject { timesList = "11:30", subjectsList = obj.subjectsList });
-                            break;
-                        case 7:
-                            list.Insert(swap_idx, new DataObject { timesList = "12:15", subjectsList = obj.subjectsList });
-                            break;
-                        case 8:
-                            list.Insert(swap_idx, new DataObject { timesList = "13:00", subjectsList = obj.subjectsList });
-                            break;
-                        case 9:
-                            list.Insert(swap_idx, new DataObject { timesList = "13:45", subjectsList = obj.subjectsList });
-                            break;
-                        case 10:
-                            list.Insert(swap_idx, new DataObject { timesList = "14:30", subjectsList = obj.subjectsList });
-                            break;
-                        case 11:
-                            list.Insert(swap_idx, new DataObject { timesList = "15:15", subjectsList = obj.subjectsList });
-                            break;
-                        case 12:
-                            list.Insert(swap_idx, new DataObject { timesList = "16:00", subjectsList = obj.subjectsList });
-                            break;
-                        case 13:
-                            list.Insert(swap_idx, new DataObject { timesList = "16:45", subjectsList = obj.subjectsList });
-                            break;
-                        case 14:
-                            list.Insert(swap_idx, new DataObject { timesList = "17:30", subjectsList = obj.subjectsList });
-                            break;
-                        case 15:
-                            list.Insert(swap_idx, new DataObject { timesList = "18:15", subjectsList = obj.subjectsList });
-                            break;
-                        case 16:
-                            list.Insert(swap_idx, new DataObject { timesList = "19:00", subjectsList = obj.subjectsList });
-                            break;
-                        case 17:
-                            list.Insert(swap_idx, new DataObject { timesList = "19:45", subjectsList = obj.subjectsList });
-                            break;
-                        case 18:
-                            list.Insert(swap_idx, new DataObject { timesList = "20:30", subjectsList = obj.subjectsList });
-                            break;
-                        case 19:
-                            list.Insert(swap_idx, new DataObject { timesList = "21:15", subjectsList = obj.subjectsList });
-                            break;
+                //if (swap_idx >= 0)
+                //{
+                //    list.RemoveAt(swap_idx);
+                //    switch(swap_idx)
+                //    {
+                //        case 0:
+                //            list.Insert(swap_idx, new DataObject { timesList = "7:00", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 1:
+                //            list.Insert(swap_idx, new DataObject { timesList = "7:45", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 2:
+                //            list.Insert(swap_idx, new DataObject { timesList = "8:30", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 3:
+                //            list.Insert(swap_idx, new DataObject { timesList = "9:15", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 4:
+                //            list.Insert(swap_idx, new DataObject { timesList = "10:00", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 5:
+                //            list.Insert(swap_idx, new DataObject { timesList = "10:45", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 6:
+                //            list.Insert(swap_idx, new DataObject { timesList = "11:30", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 7:
+                //            list.Insert(swap_idx, new DataObject { timesList = "12:15", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 8:
+                //            list.Insert(swap_idx, new DataObject { timesList = "13:00", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 9:
+                //            list.Insert(swap_idx, new DataObject { timesList = "13:45", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 10:
+                //            list.Insert(swap_idx, new DataObject { timesList = "14:30", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 11:
+                //            list.Insert(swap_idx, new DataObject { timesList = "15:15", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 12:
+                //            list.Insert(swap_idx, new DataObject { timesList = "16:00", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 13:
+                //            list.Insert(swap_idx, new DataObject { timesList = "16:45", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 14:
+                //            list.Insert(swap_idx, new DataObject { timesList = "17:30", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 15:
+                //            list.Insert(swap_idx, new DataObject { timesList = "18:15", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 16:
+                //            list.Insert(swap_idx, new DataObject { timesList = "19:00", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 17:
+                //            list.Insert(swap_idx, new DataObject { timesList = "19:45", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 18:
+                //            list.Insert(swap_idx, new DataObject { timesList = "20:30", subjectsList = obj.subjectsList });
+                //            break;
+                //        case 19:
+                //            list.Insert(swap_idx, new DataObject { timesList = "21:15", subjectsList = obj.subjectsList });
+                //            break;
 
-                    }
+                //    }
                     //list.Insert(swap_idx, new DataObject { timesList = (swap_idx+7)+":00", subjectsList = obj.subjectsList});
-                }
+                //}
 
                 this.tableGrid.ItemsSource = list;
 
