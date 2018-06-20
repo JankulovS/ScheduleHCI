@@ -29,6 +29,7 @@ namespace Schedule
     public class EntityData
     {
         public List<Subject> subjects;
+        public List<Subject> allSubjects;
         public List<Course> courses;
         public List<Software> software;
         public List<Classroom> classrooms;
@@ -572,6 +573,7 @@ namespace Schedule
             ser_data.classrooms = classrooms.ToList<Classroom>();
             ser_data.courses = courses.ToList<Course>();
             ser_data.subjects = subjects.ToList<Subject>();
+            ser_data.allSubjects = allSubjects.ToList<Subject>();
             ser_data.software = software.ToList<Software>();
 
 
@@ -583,44 +585,64 @@ namespace Schedule
         private void LoadEntities()
         {
             XmlSerializer xs = new XmlSerializer(typeof(EntityData));
-            using (var sr = new StreamReader(_file + ".ent"))
+            try { 
+                using (var sr = new StreamReader(_file + ".ent"))
+                {
+                    EntityData ser_data = (EntityData)xs.Deserialize(sr);
+
+                    courses = new ObservableCollection<Course>();
+                    foreach (var course in ser_data.courses)
+                    {
+                        courses.Add(course);
+                    }
+                    classrooms = new ObservableCollection<Classroom>();
+                    foreach (var classroom in ser_data.classrooms)
+                    {
+                        classrooms.Add(classroom);
+                    }
+                    subjects = new ObservableCollection<Subject>();
+                    foreach (var subject in ser_data.subjects)
+                    {
+                        subjects.Add(subject);
+                    }
+                    allSubjects = new ObservableCollection<Subject>();
+                    foreach (var subject in ser_data.allSubjects)
+                    {
+                        allSubjects.Add(subject);
+                    }
+                    software = new ObservableCollection<Software>();
+                    foreach (var sw in ser_data.software)
+                    {
+                        software.Add(sw);
+                    }
+
+                    // stajiceva magija
+                    /*itemList.Courses = courses;
+                    itemList.Software = software;
+                    itemList.Subjects = subjects;
+                    itemList.lv.ItemsSource = itemList.Subjects;
+                    itemList.Classrooms = classrooms;
+                    itemList.lv2.ItemsSource = itemList.Classrooms;
+                    itemList.lv3.ItemsSource = subjects;*/
+
+                    itemList.Courses = courses;
+                    itemList.Software = software;
+                    itemList.AllSubjects = allSubjects;
+                    itemList.Subjects = subjects;
+                    itemList.lv.ItemsSource = itemList.Subjects;
+                    itemList.Classrooms = classrooms;
+                    itemList.lv2.ItemsSource = itemList.Classrooms;
+                    itemList.lv3.ItemsSource = itemList.Subjects;
+
+                    // moja magija
+
+                    Table._subjects = ItemList._itemList.Subjects;
+                    Table._subjectsUI = ItemList._itemList.lv3;
+                }
+            }
+            catch
             {
-                EntityData ser_data = (EntityData)xs.Deserialize(sr);
-
-                courses = new ObservableCollection<Course>();
-                foreach (var course in ser_data.courses)
-                {
-                    courses.Add(course);
-                }
-                classrooms = new ObservableCollection<Classroom>();
-                foreach (var classroom in ser_data.classrooms)
-                {
-                    classrooms.Add(classroom);
-                }
-                subjects = new ObservableCollection<Subject>();
-                foreach (var subject in ser_data.subjects)
-                {
-                    subjects.Add(subject);
-                }
-                software = new ObservableCollection<Software>();
-                foreach (var sw in ser_data.software)
-                {
-                    software.Add(sw);
-                }
-
-                // stajiceva magija
-                itemList.Courses = courses;
-                itemList.Software = software;
-                itemList.Subjects = subjects;
-                itemList.lv.ItemsSource = itemList.Subjects;
-                itemList.Classrooms = classrooms;
-                itemList.lv2.ItemsSource = itemList.Classrooms;
-                itemList.lv3.ItemsSource = subjects;
-
-                // moja magija
-
-                Table._subjects = ItemList._itemList.Subjects;
-                Table._subjectsUI = ItemList._itemList.lv3;
+                MessageBox.Show("Wait a moment.");
             }
             Console.WriteLine("Loaded entities!");
         }
@@ -738,13 +760,14 @@ namespace Schedule
             Courses = new ObservableCollection<Course>();
             Softwares = new ObservableCollection<Software>();
             Classrooms = new ObservableCollection<Classroom>();
+            AllSubjects = new ObservableCollection<Subject>();
 
- 
 
 
             itemList.Courses = courses;
             itemList.Software = software;
             itemList.Subjects = subjects;
+            itemList.AllSubjects = allSubjects;
             itemList.Classrooms = classrooms;
 
             itemList.lv.ItemsSource = itemList.Subjects;
