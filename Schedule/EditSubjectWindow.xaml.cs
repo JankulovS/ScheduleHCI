@@ -30,7 +30,7 @@ namespace Schedule
         public static List<String> smerovi;
 
         public static int indeks_smera;
-
+        public EventHandler edit;
 
         public EditSubjectWindow(Subject obj,int i)
         {
@@ -182,7 +182,7 @@ namespace Schedule
 
             ResetWindow();
             this.Hide();
-
+            edit(this, EventArgs.Empty);
         }
 
         private void Cancel_click(object sender, RoutedEventArgs e)

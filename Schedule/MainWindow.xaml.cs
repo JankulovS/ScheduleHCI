@@ -36,7 +36,7 @@ namespace Schedule
 
     public partial class MainWindow : Window
     {
-        private ItemList itemList;
+        public ItemList itemList;
         private Table table;
         SearchWindow sw;
         FilterWindow fw;
@@ -47,6 +47,7 @@ namespace Schedule
         AddSoftwareWindow asoftwarew;
         
         private ObservableCollection<Subject> subjects;
+        private ObservableCollection<Subject> allSubjects;
         private ObservableCollection<Course> courses;
         private ObservableCollection<Software> software;
         private ObservableCollection<Classroom> classrooms;
@@ -59,6 +60,7 @@ namespace Schedule
 
         public ObservableCollection<Software> Softwares { get { return software; } set { software = value; } }
         public ObservableCollection<Course> Courses { get { return courses; } set { courses = value; } }
+        internal ObservableCollection<Subject> AllSubjects { get => allSubjects; set => allSubjects = value; }
         public ObservableCollection<Subject> Subjects { get { return subjects; } set { subjects = value; } }
         public ObservableCollection<Classroom> Classrooms { get { return classrooms; } set { classrooms = value; } }
 
@@ -125,20 +127,27 @@ namespace Schedule
             grid.Children.Add(itemList);
 
 
-            subjects = new ObservableCollection<Subject>();
+            allSubjects = new ObservableCollection<Subject>();
             courses = new ObservableCollection<Course>();
             software = new ObservableCollection<Software>();
             classrooms = new ObservableCollection<Classroom>();
 
             UseDummyData();
 
+            subjects = new ObservableCollection<Subject>();
+            foreach (Subject s in allSubjects)
+            {
+                subjects.Add(s);
+            }
+
             itemList.Courses = courses;
             itemList.Software = software;
+            itemList.AllSubjects = allSubjects;
             itemList.Subjects = subjects;
             itemList.lv.ItemsSource = itemList.Subjects;
             itemList.Classrooms = classrooms;
             itemList.lv2.ItemsSource = itemList.Classrooms;
-            itemList.lv3.ItemsSource = subjects;
+            itemList.lv3.ItemsSource = itemList.Subjects;
             NewScheduleEvent += NewScheduleEventTrigger;
         }
 
@@ -157,9 +166,9 @@ namespace Schedule
             List<Software> l = new List<Software>();
             l.Add(new Software("ID1", "Photoshop", "Windows", "Adobe", "www.newst.com", 2017, 2015, "opis"));
 
-            subjects.Add(new Subject { ID = "Prvi", Name = "Interakcija covek racunar", Course = new Course("Prvi", "SIIT", new DateTime(), "opis"), Description = "asd", ClassLength = 1, NoOfClasses = 3, GroupSize = 3, Projector = true, Board = true, SmartBoard = true, OS = "Windows", Software = new List<Software>() });
-            subjects.Add(new Subject("Drugi", "Metodologije razvoja softvera", new Course("Prvi", "E2", new DateTime(), "opis"), "asd", 1, 2, 4, 0, true, true, true, "Linux", l));
-            subjects.Add(new Subject("Treci", "Pisana i govorna komunikacija u tehnici", new Course("Prvi", "PSI", new DateTime(), "opis"), "asd", 1, 3, 3, 0, true, true, true, "Windows/Linux", new List<Software>()));
+            allSubjects.Add(new Subject { ID = "Prvi", Name = "Interakcija covek racunar", Course = new Course("Prvi", "SIIT", new DateTime(), "opis"), Description = "asd", ClassLength = 1, NoOfClasses = 3, GroupSize = 3, Projector = true, Board = true, SmartBoard = true, OS = "Windows", Software = new List<Software>() });
+            allSubjects.Add(new Subject("Drugi", "Metodologije razvoja softvera", new Course("Prvi", "E2", new DateTime(), "opis"), "asd", 1, 2, 4, 0, true, true, true, "Linux", l));
+            allSubjects.Add(new Subject("Treci", "Pisana i govorna komunikacija u tehnici", new Course("Prvi", "PSI", new DateTime(), "opis"), "asd", 1, 3, 3, 0, true, true, true, "Windows/Linux", new List<Software>()));
 
 
             classrooms.Add(new Classroom("IC1", "Internet centar ucionica 1", 40, true, true, false, "Windows", l));
@@ -655,7 +664,8 @@ namespace Schedule
 
         public static void AddSubject(Subject s)
         {
-            _mainWindow.subjects.Add(s);
+            _mainWindow.allSubjects.Add(s);
+            _mainWindow.itemList.SetSubjects();
         }
 
         private void CommandBinding_Executed_1(object sender, ExecutedRoutedEventArgs e)

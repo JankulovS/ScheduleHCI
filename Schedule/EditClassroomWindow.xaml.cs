@@ -22,6 +22,7 @@ namespace Schedule
     public partial class EditClassroomWindow : Window
     {
         private Classroom c;
+        public EventHandler edit;
 
         public Classroom C { get { return c; } set { c = value; } }
 
@@ -136,6 +137,8 @@ namespace Schedule
 
             ResetWindow();
             this.Hide();
+
+            edit(this, EventArgs.Empty);
         }
 
         private void Cancel_click(object sender, RoutedEventArgs e)

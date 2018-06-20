@@ -27,12 +27,14 @@ namespace Schedule
     public partial class ItemList : UserControl
     {
         private ObservableCollection<Subject> subjects;
+        private ObservableCollection<Subject> allSubjects;
         private ObservableCollection<Course> courses;
         private ObservableCollection<Software> software;
         private ObservableCollection<Classroom> classrooms;
 
         internal ObservableCollection<Classroom> Classrooms { get => classrooms; set => classrooms = value; }
         internal ObservableCollection<Subject> Subjects { get => subjects; set => subjects = value; }
+        internal ObservableCollection<Subject> AllSubjects { get => allSubjects; set => allSubjects = value; }
         internal ObservableCollection<Course> Courses { get => courses; set => courses = value; }
         internal ObservableCollection<Software> Software { get => software; set => software = value; }
 
@@ -49,7 +51,7 @@ namespace Schedule
         public event EventHandler AddSoftware;
 
         private string text = "Subjects";
-        
+        private Classroom selectedClassroom;
 
 
         public ItemList()
@@ -59,6 +61,7 @@ namespace Schedule
             i = 2;
             _itemList = this;
             this.DataContext = this;
+            selectedClassroom = null;
         }
 
         // DRAG AND DROP
@@ -220,11 +223,99 @@ namespace Schedule
             try
             {
                 Table.ChangeClassroomLabel(classroom.ID);
+                selectedClassroom = classroom;
+                SetSubjects();
+                
             }
             catch (Exception)
             {
                 return;
             }
+        }
+
+        private void SetSubjects(object sender, EventArgs e)
+        {
+            SetSubjects();
+        }
+
+        public void SetSubjects()
+        {
+            if(selectedClassroom == null)
+            {
+                subjects.Clear();
+                foreach (Subject s in allSubjects)
+                {
+                    subjects.Add(s);
+                }
+                return;
+            }
+            subjects.Clear();
+            bool add = false;
+            foreach (Subject s in allSubjects)
+            {
+                add = false;
+                if (s.Board == true)
+                {
+                    if (!selectedClassroom.Board)
+                    {
+                        continue;
+                    }
+                }
+
+                if (s.SmartBoard == true)
+                {
+                    if (!selectedClassroom.SmartBoard)
+                    {
+                        continue;
+                    }
+                }
+
+                if (s.Projector == true)
+                {
+                    if (!selectedClassroom.Projector)
+                    {
+                        continue;
+                    }
+                }
+
+                if (selectedClassroom.System.ToLower() != s.OS.ToLower() && selectedClassroom.System.ToLower() != "windows/linux")
+                {
+                    continue;
+                }
+
+                
+                foreach (Software ss in s.Software)
+                {
+                    foreach (Software cs in selectedClassroom.Software)
+                    {
+                        add = false;
+                        if (ss.ID.ToLower() == ss.ID.ToLower())
+                        {
+                            add = true;
+                        }
+                        if (!add)
+                        {
+                            break;
+                        }
+                    }
+                    if (!add)
+                    {
+                        break;
+                    }
+                }
+                if (s.Software.Count == 0)
+                {
+                    add = true;
+                }
+                if (!add)
+                {
+                    continue;
+                }
+
+                subjects.Add(s);
+
+            }
+            lv.ItemsSource = subjects;
         }
 
         private void Add_Classroom(object sender, RoutedEventArgs e)
@@ -370,6 +461,7 @@ namespace Schedule
             }
 
             w.Show();
+            w.edit += SetSubjects;
         }
 
         private void Edit_Subject(int index)
@@ -403,6 +495,8 @@ namespace Schedule
                 w.cp.IsChecked = true;
             }
             w.Show();
+
+            w.edit += SetSubjects;
         }
 
     }
