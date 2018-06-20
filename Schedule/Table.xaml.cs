@@ -161,8 +161,14 @@ namespace Schedule
 
                 // refresh UI.
 
-                _labelClassroom.Content = _classrooms.Keys.First();
-                ChangeClassroomSchedule((_labelClassroom.Content.ToString()));
+                try {
+                    _labelClassroom.Content = _classrooms.Keys.First();
+                    ChangeClassroomSchedule((_labelClassroom.Content.ToString()));
+                }
+                catch (Exception)
+                {
+                    ChangeClassroomSchedule("NOT SELECTED");
+                }
                 ItemList._itemList.lv3.SelectedIndex = 0;
 
                 if (_table.Monday.IsSelected)
