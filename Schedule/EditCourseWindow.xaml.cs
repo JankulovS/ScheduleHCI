@@ -37,6 +37,22 @@ namespace Schedule
         private void Edit_Course(object sender,RoutedEventArgs e)
         {
             this.c.ID = id.Text;
+
+            int brojac = 0;
+            foreach (Model.Course el in MainWindow._mainWindow.Courses)
+            {
+                if (el.ID.Equals(this.c.ID) && brojac != index)
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+                brojac++;
+            }
+
+
+
             this.c.Name = n.Text;
             this.c.Date = DateTime.Parse(d.Text);
             this.c.Description = desc.Text;

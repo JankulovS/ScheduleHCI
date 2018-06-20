@@ -93,18 +93,20 @@ namespace Schedule
 
             if (os1.IsChecked == true && os2.IsChecked == true)
             {
-                sys = "windows, linux";
+                sys = "Windows/Linux";
             }
 
 
-            //foreach (Model.Classroom el in MainWindow.classrooms)
-            //{
-            //    if (el.ID.Equals(_id))
-            //    {
-            //        MessageBox.Show("id already exists !!!");
-            //        return;
-            //    }
-            //}
+            foreach (Model.Classroom el in MainWindow._mainWindow.Classrooms)
+            {
+                if (el.ID.Equals(_id))
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+            }
 
 
             //!!!

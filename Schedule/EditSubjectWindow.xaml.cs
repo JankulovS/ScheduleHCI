@@ -118,6 +118,25 @@ namespace Schedule
         private void Edit_Subject(object sender, RoutedEventArgs e)
         {
             this.s.ID = this.id.Text.Trim();
+            int b = 0;
+            foreach (Model.Subject el in MainWindow._mainWindow.Subjects)
+            {
+                if (el.ID.Equals(this.s.ID) && b != index)
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+                b++;
+            }
+
+
+
+
+
+
+
             this.s.Name = this.n.Text.Trim();
             this.s.GroupSize = Int32.Parse(this.n_students.Text);
             this.s.ClassLength = Int32.Parse(this.len.Text);
@@ -137,7 +156,7 @@ namespace Schedule
             }
             else
             {
-                this.s.OS = "windows, linux";
+                this.s.OS = "Windows/Linux";
             }
 
             int brojac = 0;

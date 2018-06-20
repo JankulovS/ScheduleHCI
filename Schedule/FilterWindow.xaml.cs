@@ -82,7 +82,7 @@ namespace Schedule
 
                 list.Add(new ComboBoxItem { Content = "Windows" });
                 list.Add(new ComboBoxItem { Content = "Linux" });
-                list.Add(new ComboBoxItem { Content = "Either" });
+                list.Add(new ComboBoxItem { Content = "Windows/Linux" });
 
                 otherCBox.ItemsSource = list;
                 otherCBox.SelectedIndex = 0;

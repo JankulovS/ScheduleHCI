@@ -38,6 +38,23 @@ namespace Schedule
         private void Edit_Software(object sender, RoutedEventArgs e)
         {
             this.s.ID = id.Text;
+
+            int brojac = 0;
+            foreach (Model.Software el in MainWindow._mainWindow.Softwares)
+            {
+                if (el.ID.Equals(this.s.ID) && brojac != index)
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+                brojac++;
+            }
+
+
+
+
             this.s.Name = n.Text;
             this.s.Maker = mak.Text;
             this.s.Website = web.Text;
@@ -50,7 +67,7 @@ namespace Schedule
             }else if(lin.IsChecked == true){
                 this.s.OS = "linux";
             }else{
-                this.s.OS = "cross-platform";
+                this.s.OS = "Windows/Linux";
             }
 
             MainWindow._mainWindow.Softwares.RemoveAt(index);

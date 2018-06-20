@@ -75,6 +75,23 @@ namespace Schedule
         private void Edit_Classroom(object sender, RoutedEventArgs e)
         {
             c.ID = this.id.Text;
+
+            int b = 0;
+
+            foreach (Model.Classroom el in MainWindow._mainWindow.Classrooms)
+            {
+                if (el.ID.Equals(c.ID) && b != index)
+                {
+                    MessageBox.Show("id already exists !!!");
+                    ResetWindow();
+                    this.Hide();
+                    return;
+                }
+                b++;
+            }
+
+
+
             c.NoOfSeats = Int32.Parse(this.seats.Text);
             c.Description = this.desc.Text;
 
@@ -94,7 +111,7 @@ namespace Schedule
 
             if (this.os1.IsChecked == true && this.os2.IsChecked == true)
             {
-                c.System = "windows, linux";
+                c.System = "Windows/Linux";
             }
 
 
