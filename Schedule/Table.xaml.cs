@@ -775,10 +775,73 @@ namespace Schedule
                 //    list.RemoveAt(swap_idx);
                 //    list.Insert(swap_idx, new DataObject { timesList = swap_time, subjectsList = obj.subjectsList });
                 //}
+
+                bool real = true;
                 
                 if (obj.subjectsList == subject.Name)
                 {
                     _isNewDrop = false;
+                }
+
+                if (swap_idx >= 0 && _isNewDrop == false)
+                {
+                    real = false;
+                    var candidate = list[tableGrid.SelectedIndex];
+                    int swap_id = tableGrid.SelectedIndex;
+                    int subject_length = 1;
+
+                    while (list.ElementAt(swap_id).subjectsList == REPEAT)
+                    {
+                        swap_id--;
+                    }
+                    candidate = list[swap_id];
+                    subject.Name = candidate.subjectsList;
+
+                    Delete(false);
+
+
+                    // find class length
+                    foreach (var item in _subjects)
+                    {
+                        if (item.Name == candidate.subjectsList)
+                        {
+                            subject_length = item.ClassLength;
+                        }
+                    }
+                    // check if there are enough free slots
+                    for (int i = 0; i < subject_length; i++)
+                    {
+                        try
+                        {
+                            if (list.ElementAt(selectedRow + i).subjectsList != "")
+                            {
+                                string IsAre = "is";
+                                if (i > 1)
+                                {
+                                    IsAre = "are";
+                                }
+                                MessageBox.Show("There are not enough free slots. This subject requires " + subject_length + " successive free slots but there " + IsAre + " " + i + " available.");
+                                selectedRow = swap_id;
+                            }
+                        }
+                        catch (ArgumentOutOfRangeException)
+                        {
+                            MessageBox.Show("Subjects are out of bounds of the schedule table. " + subject_length + " successive slots required.");
+                            selectedRow = swap_id;
+                        }
+                    }
+
+                    for (int i = 0; i < subject_length; i++)
+                    {
+                        obj = list.ElementAt(selectedRow + i);
+                        list.RemoveAt(selectedRow + i);
+                        if (i == 0)
+                            list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                        else
+                            list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = REPEAT });
+                    }
+
+                    _isNewDrop = true;
                 }
 
                 //if (swap_idx >= 0)
@@ -848,7 +911,7 @@ namespace Schedule
                 //            break;
 
                 //    }
-                    //list.Insert(swap_idx, new DataObject { timesList = (swap_idx+7)+":00", subjectsList = obj.subjectsList});
+                //list.Insert(swap_idx, new DataObject { timesList = (swap_idx+7)+":00", subjectsList = obj.subjectsList});
                 //}
 
                 this.tableGrid.ItemsSource = list;
@@ -872,10 +935,18 @@ namespace Schedule
 
                     foreach (var item in _subjects)
                     {
-                        if (item.ID == _candidate.ID)
+                        try
                         {
-                           item.NoOfClassesSet = item.NoOfClassesSet + 1;
-                            
+                            if (item.ID == _candidate.ID)
+                            {
+                                if (real)
+                                    item.NoOfClassesSet = item.NoOfClassesSet + 1;
+
+                            }
+                        }
+                        catch (NullReferenceException)
+                        {
+
                         }
                         newSubjects.Add(item);
                     }
@@ -957,72 +1028,78 @@ namespace Schedule
         {
             if (e.Key == Key.Delete)
             {
-                var list = new ObservableCollection<DataObject>();
-                list = (ObservableCollection<DataObject>)tableGrid.ItemsSource;
+                Delete(true);
+                e.Handled = true;
+            }
+        }
 
-                int deleteIdx = tableGrid.SelectedIndex;
+        private void Delete(bool real)
+        {
+            var list = new ObservableCollection<DataObject>();
+            list = (ObservableCollection<DataObject>)tableGrid.ItemsSource;
 
-                
-                var newSubjects = new ObservableCollection<Subject>();
-                var candidate = list[deleteIdx];
-                int subject_length = 0;
+            int deleteIdx = tableGrid.SelectedIndex;
 
 
-                // find root
-                while (list.ElementAt(deleteIdx).subjectsList == REPEAT)
+            var newSubjects = new ObservableCollection<Subject>();
+            var candidate = list[deleteIdx];
+            int subject_length = 0;
+
+
+            // find root
+            while (list.ElementAt(deleteIdx).subjectsList == REPEAT)
+            {
+                deleteIdx--;
+            }
+            candidate = list[deleteIdx];
+
+
+            foreach (var item in _subjects)
+            {
+                if (item.Name == candidate.subjectsList)
                 {
-                    deleteIdx--;
-                }
-                candidate = list[deleteIdx];
-
-
-                foreach (var item in _subjects)
-                {
-                    if (item.Name == candidate.subjectsList)
-                    {
+                    if(real)
                         item.NoOfClassesSet = item.NoOfClassesSet - 1;
-                    }
-                    newSubjects.Add(item);
                 }
-                _subjectsUI.ItemsSource = newSubjects;
+                newSubjects.Add(item);
+            }
+            _subjectsUI.ItemsSource = newSubjects;
 
 
 
 
-                // find class length
-                foreach (var item in _subjects)
+            // find class length
+            foreach (var item in _subjects)
+            {
+                if (item.Name == candidate.subjectsList)
                 {
-                    if (item.Name == candidate.subjectsList)
-                    {
-                        subject_length = item.ClassLength;
-                    }
+                    subject_length = item.ClassLength;
                 }
+            }
 
-                // store times
-                List<string> times = new List<string>();
+            // store times
+            List<string> times = new List<string>();
+            for (int i = 0; i < subject_length; i++)
+            {
+                times.Add(list.ElementAt(deleteIdx + i).timesList);
+            }
+
+            // delete from root
+            if (list.ElementAt(deleteIdx).subjectsList != REPEAT)
+            {
                 for (int i = 0; i < subject_length; i++)
                 {
-                    times.Add(list.ElementAt(deleteIdx + i).timesList);
+                    list.RemoveAt(deleteIdx + i);
+                    list.Insert(deleteIdx + i, new DataObject { timesList = times.ElementAt(i), subjectsList = "" });
                 }
-
-                // delete from root
-                if (list.ElementAt(deleteIdx).subjectsList != REPEAT)
-                {
-                    for (int i = 0; i < subject_length; i++)
-                    {
-                        list.RemoveAt(deleteIdx + i);
-                        list.Insert(deleteIdx + i, new DataObject { timesList = times.ElementAt(i), subjectsList = "" });
-                    }
-                }
-
-                //list.RemoveAt(deleteIdx);
-                //list.Insert(deleteIdx, new DataObject { timesList = time , subjectsList = "" });
-                this.tableGrid.ItemsSource = list;
-
-                Console.WriteLine("deleted item at position " + deleteIdx);
-                e.Handled = true;
-
             }
+
+            //list.RemoveAt(deleteIdx);
+            //list.Insert(deleteIdx, new DataObject { timesList = time , subjectsList = "" });
+            this.tableGrid.ItemsSource = list;
+
+            Console.WriteLine("deleted item at position " + deleteIdx);
+
         }
 
         public static void ChangeClassroomLabel(string label)
