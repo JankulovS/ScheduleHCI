@@ -158,7 +158,7 @@ namespace Schedule
             l.Add(new Software("ID1", "Photoshop", "Windows", "Adobe", "www.newst.com", 2017, 2015, "opis"));
 
             subjects.Add(new Subject { ID = "Prvi", Name = "Interakcija covek racunar", Course = new Course("Prvi", "SIIT", new DateTime(), "opis"), Description = "asd", ClassLength = 1, NoOfClasses = 3, GroupSize = 3, Projector = true, Board = true, SmartBoard = true, OS = "Windows", Software = new List<Software>() });
-            subjects.Add(new Subject("Drugi", "Metodologije razvoja softvera", new Course("Prvi", "E2", new DateTime(), "opis"), "asd", 1, 3, 2, 0, true, true, true, "Linux", l));
+            subjects.Add(new Subject("Drugi", "Metodologije razvoja softvera", new Course("Prvi", "E2", new DateTime(), "opis"), "asd", 1, 2, 4, 0, true, true, true, "Linux", l));
             subjects.Add(new Subject("Treci", "Pisana i govorna komunikacija u tehnici", new Course("Prvi", "PSI", new DateTime(), "opis"), "asd", 1, 3, 3, 0, true, true, true, "Windows/Linux", new List<Software>()));
 
 

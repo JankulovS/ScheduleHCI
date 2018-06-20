@@ -700,9 +700,9 @@ namespace Schedule
 
                 Subject subject = e.Data.GetData("myFormat") as Subject;
 
-                if (subject.NoOfClasses == subject.NoOfClassesSet && swap_idx < 0)
+                if (subject.NoOfClassesSet + subject.ClassLength > subject.NoOfClasses && swap_idx < 0)
                 {
-                    MessageBox.Show("Subject already added maximum number of times.");
+                    MessageBox.Show("Subject will exceed maximum number of usage.");
                     return;
                 }
 
@@ -729,8 +729,38 @@ namespace Schedule
                     return;
                 }
 
-                list.RemoveAt(selectedRow);
-                list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                // check if there is enough free slots
+                for (int i = 0; i < subject.ClassLength; i++)
+                {
+                    try
+                    {
+                        if (list.ElementAt(selectedRow + i).subjectsList != "")
+                        {
+                            string IsAre = "is";
+                            if (i > 1)
+                            {
+                                IsAre = "are";
+                            }
+                            MessageBox.Show("There are not enough free slots. This subject requires " + subject.ClassLength + " successive free slots but there " + IsAre + " " + i + " available.");
+                            return;
+                        }
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        MessageBox.Show("Subjects are out of bounds of the schedule table. " + subject.ClassLength + " successive slots required.");
+                        return;
+                    }
+                }
+
+                //list.RemoveAt(selectedRow);
+
+                for (int i = 0; i < subject.ClassLength; i++ )
+                {
+                    obj = list.ElementAt(selectedRow + i);
+                    list.RemoveAt(selectedRow + i);
+                    list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                }
+                //list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
                 if (obj.subjectsList == subject.Name)
                 {
                     _isNewDrop = false;
@@ -829,7 +859,10 @@ namespace Schedule
                     {
                         if (item.ID == _candidate.ID)
                         {
-                            item.NoOfClassesSet = item.NoOfClassesSet + 1;
+                            for (int i = 0; i < subject.ClassLength; i++)
+                            {
+                                item.NoOfClassesSet = item.NoOfClassesSet + 1;
+                            }
                         }
                         newSubjects.Add(item);
                     }
