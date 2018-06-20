@@ -178,7 +178,7 @@ namespace Schedule
                 MouseMove(50, 60);
                 LeftMouseClick();
                 Wait(250);
-                MouseMove(50, 145);
+                MouseMove(50, 130);
                 LeftMouseClick();
                 Wait(250);
 
@@ -204,10 +204,10 @@ namespace Schedule
                 Wait(250);
 
                 // drag over second subject
-                MouseMove(50, 135);
+                MouseMove(50, 125);
                 MouseHoldDown();
                 Wait(250);
-                MouseMove(350, 160);
+                MouseMove(350, 130);
                 MouseRelease();
                 Wait(250);
 
@@ -227,13 +227,20 @@ namespace Schedule
                 Wait(250);
 
                 // drag over one
-                MouseMove(50, 155);
+                MouseMove(50, 110);
                 MouseHoldDown();
                 Wait(250);
                 MouseMove(350, 180);
                 MouseRelease();
                 Wait(250);
 
+                // drag over second subject
+                MouseMove(50, 135);
+                MouseHoldDown();
+                Wait(250);
+                MouseMove(350, 130);
+                MouseRelease();
+                Wait(250);
 
                 StopDemo();
 
