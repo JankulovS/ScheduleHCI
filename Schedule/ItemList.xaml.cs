@@ -51,7 +51,7 @@ namespace Schedule
         public event EventHandler AddSoftware;
 
         private string text = "Subjects";
-        private Classroom selectedClassroom;
+        public Classroom selectedClassroom;
 
 
         public ItemList()

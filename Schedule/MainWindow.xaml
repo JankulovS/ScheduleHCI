@@ -40,6 +40,8 @@
                 <MenuItem Header="_Add Subject" Command="cmd:RoutedCommands.AddSubject"></MenuItem>
                 <MenuItem Header="_Add Course" Command="cmd:RoutedCommands.AddCourse"></MenuItem>
                 <MenuItem Header="_Add Software" Command="cmd:RoutedCommands.AddSoftware"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="_Deselect a Classroom" Click="Deselect"></MenuItem>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_View Help" Click="Help_Click">

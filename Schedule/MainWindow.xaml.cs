@@ -788,5 +788,12 @@ namespace Schedule
             string path = @"..\..\Schedule User Manual.chm";
             System.Diagnostics.Process.Start(path);
         }
+
+        private void Deselect(object sender, EventArgs e)
+        {
+            itemList.selectedClassroom = null;
+            itemList.SetSubjects();
+            table.labelClassroom.Content = "NOT SELECTED";
+        }
     }
 }
