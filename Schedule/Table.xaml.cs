@@ -44,6 +44,7 @@ namespace Schedule
         int swap_idx;
         static Label _labelClassroom;
         static Table _table;
+        public const string REPEAT = " ~ | | ~ ";
 
         public static Subject _candidate;
         public static ObservableCollection<Subject> _subjects;
@@ -700,7 +701,7 @@ namespace Schedule
 
                 Subject subject = e.Data.GetData("myFormat") as Subject;
 
-                if (subject.NoOfClassesSet + subject.ClassLength > subject.NoOfClasses && swap_idx < 0)
+                if (subject.NoOfClassesSet >= subject.NoOfClasses && swap_idx < 0)
                 {
                     MessageBox.Show("Subject will exceed maximum number of usage.");
                     return;
@@ -753,27 +754,28 @@ namespace Schedule
                         return;
                     }
                 }
-
-                //list.RemoveAt(selectedRow);
+                
 
                 for (int i = 0; i < subject.ClassLength; i++ )
                 {
                     obj = list.ElementAt(selectedRow + i);
                     list.RemoveAt(selectedRow + i);
-                    list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                    if (i == 0)
+                        list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                    else
+                        list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = REPEAT });
                 }
 
-                if (swap_idx >= 0 && swap_idx != selectedRow)
-                {
-                    string swap_name = list.ElementAt(swap_idx).subjectsList;
-                    string swap_time = list.ElementAt(swap_idx).timesList;
-                    list.RemoveAt(selectedRow);
-                    list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
-                    list.RemoveAt(swap_idx);
-                    list.Insert(swap_idx, new DataObject { timesList = swap_time, subjectsList = obj.subjectsList });
-                }
-
-                //list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                //if (swap_idx >= 0 && swap_idx != selectedRow)
+                //{
+                //    string swap_name = list.ElementAt(swap_idx).subjectsList;
+                //    string swap_time = list.ElementAt(swap_idx).timesList;
+                //    list.RemoveAt(selectedRow);
+                //    list.Insert(selectedRow, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
+                //    list.RemoveAt(swap_idx);
+                //    list.Insert(swap_idx, new DataObject { timesList = swap_time, subjectsList = obj.subjectsList });
+                //}
+                
                 if (obj.subjectsList == subject.Name)
                 {
                     _isNewDrop = false;
@@ -872,10 +874,8 @@ namespace Schedule
                     {
                         if (item.ID == _candidate.ID)
                         {
-                            for (int i = 0; i < subject.ClassLength; i++)
-                            {
-                                item.NoOfClassesSet = item.NoOfClassesSet + 1;
-                            }
+                           item.NoOfClassesSet = item.NoOfClassesSet + 1;
+                            
                         }
                         newSubjects.Add(item);
                     }
@@ -965,6 +965,16 @@ namespace Schedule
                 
                 var newSubjects = new ObservableCollection<Subject>();
                 var candidate = list[deleteIdx];
+                int subject_length = 0;
+
+
+                // find root
+                while (list.ElementAt(deleteIdx).subjectsList == REPEAT)
+                {
+                    deleteIdx--;
+                }
+                candidate = list[deleteIdx];
+
 
                 foreach (var item in _subjects)
                 {
@@ -976,10 +986,37 @@ namespace Schedule
                 }
                 _subjectsUI.ItemsSource = newSubjects;
 
-                string time = list.ElementAt(deleteIdx).timesList;
-                
-                list.RemoveAt(deleteIdx);
-                list.Insert(deleteIdx, new DataObject { timesList = time , subjectsList = "" });
+
+
+
+                // find class length
+                foreach (var item in _subjects)
+                {
+                    if (item.Name == candidate.subjectsList)
+                    {
+                        subject_length = item.ClassLength;
+                    }
+                }
+
+                // store times
+                List<string> times = new List<string>();
+                for (int i = 0; i < subject_length; i++)
+                {
+                    times.Add(list.ElementAt(deleteIdx + i).timesList);
+                }
+
+                // delete from root
+                if (list.ElementAt(deleteIdx).subjectsList != REPEAT)
+                {
+                    for (int i = 0; i < subject_length; i++)
+                    {
+                        list.RemoveAt(deleteIdx + i);
+                        list.Insert(deleteIdx + i, new DataObject { timesList = times.ElementAt(i), subjectsList = "" });
+                    }
+                }
+
+                //list.RemoveAt(deleteIdx);
+                //list.Insert(deleteIdx, new DataObject { timesList = time , subjectsList = "" });
                 this.tableGrid.ItemsSource = list;
 
                 Console.WriteLine("deleted item at position " + deleteIdx);
