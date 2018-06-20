@@ -75,6 +75,11 @@ namespace Schedule
 
         private void Edit_Classroom(object sender, RoutedEventArgs e)
         {
+            if ((os1.IsChecked == false && os2.IsChecked == false) || desc.Text == "" || id.Text == "" || seats.Text == "")
+            {
+                MessageBox.Show("Mandatory fields are not filled.");
+                return;
+            }
             c.ID = this.id.Text;
 
             int b = 0;
@@ -84,8 +89,8 @@ namespace Schedule
                 if (el.ID.Equals(c.ID) && b != index)
                 {
                     MessageBox.Show("id already exists !!!");
-                    ResetWindow();
-                    this.Hide();
+                    //ResetWindow();
+                    //this.Hide();
                     return;
                 }
                 b++;

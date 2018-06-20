@@ -37,6 +37,12 @@ namespace Schedule
 
         private void Edit_Software(object sender, RoutedEventArgs e)
         {
+            if (id.Text == "" || n.Text == "" || mak.Text == "" || web.Text == "" || y.Text == "" || p.Text == "" || desc.Text == "")
+            {
+                MessageBox.Show("Mandatory fields are not filled.");
+                return;
+            }
+
             this.s.ID = id.Text;
 
             int brojac = 0;
@@ -45,8 +51,8 @@ namespace Schedule
                 if (el.ID.Equals(this.s.ID) && brojac != index)
                 {
                     MessageBox.Show("id already exists !!!");
-                    ResetWindow();
-                    this.Hide();
+                    //ResetWindow();
+                    //this.Hide();
                     return;
                 }
                 brojac++;

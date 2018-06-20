@@ -50,8 +50,8 @@ namespace Schedule
                 if (c.ID.Equals(_id))
                 {
                     MessageBox.Show("id already exists !!!");
-                    ResetWindow();
-                    this.Hide();
+                    //ResetWindow();
+                    //this.Hide();
                     return;
                 }
             }

@@ -117,6 +117,12 @@ namespace Schedule
 
         private void Edit_Subject(object sender, RoutedEventArgs e)
         {
+            if (desc.Text == "" || id.Text == "" || n.Text == "" || n_students.Text == "" || n_terms.Text == "" || len.Text == "")
+            {
+                MessageBox.Show("Mandatory fields are not filled.");
+                return;
+            }
+
             this.s.ID = this.id.Text.Trim();
             int b = 0;
             foreach (Model.Subject el in MainWindow._mainWindow.Subjects)
@@ -124,8 +130,8 @@ namespace Schedule
                 if (el.ID.Equals(this.s.ID) && b != index)
                 {
                     MessageBox.Show("id already exists !!!");
-                    ResetWindow();
-                    this.Hide();
+                    //ResetWindow();
+                    //this.Hide();
                     return;
                 }
                 b++;

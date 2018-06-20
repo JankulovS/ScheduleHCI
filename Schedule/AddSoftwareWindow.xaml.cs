@@ -56,8 +56,8 @@ namespace Schedule
                 if (el.ID.Equals(_id))
                 {
                     MessageBox.Show("id already exists !!!");
-                    ResetWindow();
-                    this.Hide();
+                    //ResetWindow();
+                    //this.Hide();
                     return;
                 }
             }
@@ -116,7 +116,7 @@ namespace Schedule
 
         private void YearValidationTextBox(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("^(19|20)[0-9][0-9]");
+            Regex regex = new Regex("[^0-9]");
             e.Handled = regex.IsMatch(e.Text);
         }
 
