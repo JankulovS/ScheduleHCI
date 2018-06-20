@@ -131,5 +131,15 @@ namespace Schedule.Commands
                 new KeyGesture(Key.F1)
             }
             );
+
+        public static readonly RoutedUICommand Delete = new RoutedUICommand(
+            "Delete",
+            "Delete",
+            typeof(RoutedCommands),
+            new InputGestureCollection()
+            {
+                new KeyGesture(Key.Delete)
+            }
+            );
     }
 }

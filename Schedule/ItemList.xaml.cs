@@ -147,7 +147,7 @@ namespace Schedule
 
         private void Filter_Click(object sender, RoutedEventArgs e)
         {
-            if(getComboboxText() == "Courses")
+            if (getComboboxText() == "Courses")
             {
                 return;
             }
@@ -192,7 +192,7 @@ namespace Schedule
 
                 lv3.Visibility = Visibility.Hidden;
                 Grid.SetColumnSpan(lv, 4);
-                
+
             }
             else if (text == "Classrooms")
             {
@@ -225,7 +225,7 @@ namespace Schedule
                 Table.ChangeClassroomLabel(classroom.ID);
                 selectedClassroom = classroom;
                 SetSubjects();
-                
+
             }
             catch (Exception)
             {
@@ -240,7 +240,7 @@ namespace Schedule
 
         public void SetSubjects()
         {
-            if(selectedClassroom == null)
+            if (selectedClassroom == null)
             {
                 subjects.Clear();
                 foreach (Subject s in allSubjects)
@@ -283,7 +283,7 @@ namespace Schedule
                     continue;
                 }
 
-                
+
                 foreach (Software ss in s.Software)
                 {
                     foreach (Software cs in selectedClassroom.Software)
@@ -338,23 +338,69 @@ namespace Schedule
             AddSoftware(this, EventArgs.Empty);
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void Delete()
         {
             if (text == "Subjects")
-                MainWindow._mainWindow.Subjects.RemoveAt(lv.SelectedIndex);
+            {
+                if (subjects.ElementAt(lv.SelectedIndex).NoOfClassesSet > 0)
+                {
+                    MessageBox.Show("The subject is in use.");
+                    return;
+                }
+                //MainWindow._mainWindow.Subjects.RemoveAt(lv.SelectedIndex);
+                subjects.RemoveAt(lv.SelectedIndex);
+                lv3.ItemsSource = subjects;
+            }
             else if (text == "Courses")
+            {
+                bool check = false;
+                foreach(Subject s in subjects)
+                {
+                    foreach(Software ss in s.Software)
+                    {
+                        if(ss.ID == software.ElementAt(lv.SelectedIndex).ID)
+                        {
+                            check = true;
+                            break;
+                        }
+                    }
+                    if (check)
+                    {
+                        break;
+                    }
+                }
+                if (check)
+                {
+                    MessageBox.Show("Software is in use.");
+                    return;
+                }
                 MainWindow._mainWindow.Courses.RemoveAt(lv.SelectedIndex);
+
+            }
             else if (text == "Software")
+            {
                 MainWindow._mainWindow.Softwares.RemoveAt(lv.SelectedIndex);
+
+            }
             else if (text == "Classrooms")
+            {
                 MainWindow._mainWindow.Classrooms.RemoveAt(lv2.SelectedIndex);
 
+            }
+        }
+
+        private void Delete(object sender, EventArgs e)
+        {
+            Delete();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Delete();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-
-            
 
             if (text == "Courses")
             {
@@ -498,6 +544,7 @@ namespace Schedule
 
             w.edit += SetSubjects;
         }
+
 
     }
 }
