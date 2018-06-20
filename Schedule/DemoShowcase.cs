@@ -138,8 +138,8 @@ namespace Schedule
         {
             if (KeysDown().Any())
             {
-                // radiiiiii
-                MainWindow._mainWindow.Dispatcher.BeginInvoke((ThreadStart)(() => NewScheduleEvent(null, EventArgs.Empty)));
+
+                StopDemo();
                 return true;
             }
             return false;
@@ -162,6 +162,11 @@ namespace Schedule
             Thread thread = new Thread(Demo);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        public static void StopDemo()
+        {
+            MainWindow._mainWindow.Dispatcher.BeginInvoke((ThreadStart)(() => NewScheduleEvent(null, EventArgs.Empty)));
         }
 
         [STAThread]
@@ -207,7 +212,7 @@ namespace Schedule
                 Wait(250);
 
                 // move first to other place
-                MouseMove(350, 200);
+                MouseMove(350, 190);
                 Wait(125);
                 MouseHoldDown();
                 Wait(250);
@@ -229,13 +234,16 @@ namespace Schedule
                 MouseRelease();
                 Wait(250);
 
-                // drag over one
-                MouseMove(50, 155);
-                MouseHoldDown();
-                Wait(250);
-                MouseMove(370, 200);
-                MouseRelease();
-                Wait(250);
+
+                StopDemo();
+
+                //// drag over one
+                //MouseMove(50, 155);
+                //MouseHoldDown();
+                //Wait(250);
+                //MouseMove(370, 200);
+                //MouseRelease();
+                //Wait(250);
 
                 return;
             }

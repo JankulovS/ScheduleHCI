@@ -726,6 +726,8 @@ namespace Schedule
 
                 if (obj.subjectsList == subject.Name)
                 {
+                    swap_idx = -1;
+                    _isNewDrop = true;
                     return;
                 }
 
@@ -761,7 +763,7 @@ namespace Schedule
                     list.Insert(selectedRow + i, new DataObject { timesList = obj.timesList, subjectsList = subject.Name });
                 }
 
-                if (swap_idx >= 0)
+                if (swap_idx >= 0 && swap_idx != selectedRow)
                 {
                     string swap_name = list.ElementAt(swap_idx).subjectsList;
                     string swap_time = list.ElementAt(swap_idx).timesList;
@@ -880,20 +882,20 @@ namespace Schedule
                     _subjectsUI.ItemsSource = newSubjects;
                 }
 
-                if (obj.subjectsList != "" && swap_idx < 0)
-                {
-                    var newSubjects = new ObservableCollection<Subject>();
+                //if (obj.subjectsList != "" && swap_idx < 0)
+                //{
+                //    var newSubjects = new ObservableCollection<Subject>();
 
-                    foreach (var item in _subjects)
-                    {
-                        if (item.Name == obj.subjectsList)
-                        {
-                            item.NoOfClassesSet = item.NoOfClassesSet - 1;
-                        }
-                        newSubjects.Add(item);
-                    }
-                    _subjectsUI.ItemsSource = newSubjects;
-                } 
+                //    foreach (var item in _subjects)
+                //    {
+                //        if (item.Name == obj.subjectsList)
+                //        {
+                //            item.NoOfClassesSet = item.NoOfClassesSet - 1;
+                //        }
+                //        newSubjects.Add(item);
+                //    }
+                //    _subjectsUI.ItemsSource = newSubjects;
+                //} 
                 
 
                 // reset
